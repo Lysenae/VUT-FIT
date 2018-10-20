@@ -1,0 +1,7 @@
+label.required:after {
+	content:" *";
+}
+
+td, th, tr {
+	text-align: center;
+}

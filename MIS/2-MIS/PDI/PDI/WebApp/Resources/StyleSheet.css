@@ -1,0 +1,253 @@
+﻿/* Default values*/
+html, body {
+    background-color: #607D8B;
+    font-family: 'Century Gothic';
+    min-width: 1300px;
+    margin: 0;
+}
+
+/* Web header */
+#headerDiv {
+    background-color: #37474F;
+    color: white;
+    padding: 8px;
+    padding-left: 20px;
+}
+
+/* Welcome text */
+h2 {
+    font-size: medium;
+    color: #F7B633;
+}
+
+/* Right menu div */
+#avaiableMachines {
+    position: fixed;
+    top: 120px;
+    right: 0;
+    width: 250px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    display: inline-block;
+}
+
+ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid black;
+}
+
+ul li:last-of-type {
+    border-bottom: 1px solid black;
+}
+
+ul li:hover {
+    background: #37474F;
+}
+
+ul li:hover ul {
+    display: block;
+}
+
+ul li ul {
+    width: 250px;
+    display: none;
+}
+
+ul li ul li {
+    background: #37474F;
+    display: block;
+}
+
+ul li ul li a {
+    display: block !important;
+}
+
+ul li ul li:hover {
+    background: #37474F;
+}
+
+/* Right menu header */
+#menuHeader {
+    font-size: medium;
+    margin-left: 10px;
+    color: #F7B633;
+    font-weight: 700;
+}
+
+/* Main machine div */
+#machineList {
+    left: 0;
+    float: left;
+    width: 1024px;
+}
+
+/* Each machine in a class div */
+.machine {
+    margin: 10px;
+    float: left;
+    padding: 5px;
+    position: relative;
+    background-color: #90A4AE;
+    width: 480px;
+    height: 450px;
+    color: white;
+    box-shadow: 3px 3px #555;
+}
+
+
+.headerMachineDiv {
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px dashed black;
+}
+
+.headerMachine {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #F7B633;
+    text-shadow: 0 0 3px #000;
+}
+
+.machineDescDiv, .stripDescDiv {
+    float: left;
+    width: 40%;
+    margin-left: 40px;
+    top: 30px;
+    color: white;
+}
+
+.machineValuesDiv, .stripValuesDiv {
+    float: left;
+    width: 50%;
+}
+
+.headerStrip {
+    padding-bottom: 0;
+    font-size: 20px;
+    width: 100%;
+    float: left;
+    border-top: 1px dotted black;
+}
+
+.headerStripP {
+    margin-left: 20px;
+}
+
+.headerStripMissing {
+    width: 100%;
+    float: left;
+    margin-left: 40px;
+    font-style: italic;
+}
+
+/* Buttons */
+.machineButtonsDiv button, .stripButtonsDiv button {
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Century Gothic';
+    font-weight: 700;
+}
+
+.machineButtonsDiv, .stripButtonsDiv {
+    position: relative;
+    left: 20px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Power Off button */
+.postOff, .postStripOff {
+    background-color: #F47C7C;
+}
+
+.postOff:hover, .postStripOff:hover {
+    background-color: #f25a5a;
+    box-shadow: 5px 5px #888;
+}
+
+.postOff:active, .postStripOff:active {
+    background-color: #ee2b2b;
+    box-shadow: 2px 2px #444;
+    transform: translateY(-3px);
+    transform: translateX(-3px);
+}
+
+/* Restart button */
+.postRestart {
+    background-color: #F7F48B;
+}
+
+.postRestart:hover {
+    background-color: #f4f071;
+    box-shadow: 5px 5px #888;
+}
+
+.postRestart:active {
+    background-color: #f1eb41;
+    box-shadow: 2px 2px #444;
+    transform: translateY(-3px);
+    transform: translateX(-3px);
+}
+
+/* Power On button */
+.postOn, .postStripOn {
+    background-color: #A1DE93;
+}
+
+.postOn:hover, .postStripOn:hover {
+    background-color: #88d576;
+    box-shadow: 5px 5px #888;
+}
+
+.postOn:active, .postStripOn:active {
+    background-color: #66c94f;
+    box-shadow: 2px 2px #444;
+    transform: translateY(-3px);
+    transform: translateX(-3px);
+}
+
+/* Kill button */
+.postKill {
+    background-color: #70A1D7;
+}
+
+.postKill:hover {
+    background-color: #4c8acd;
+    box-shadow: 5px 5px #888;
+}
+
+.postKill:active {
+    background-color: #3271b3;
+    box-shadow: 2px 2px #444;
+    transform: translateY(-3px);
+    transform: translateX(-3px);
+}
+

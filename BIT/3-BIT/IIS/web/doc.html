@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-2"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Název zadání</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Daniel Klimaj <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xklima22@stud.fit.vutbr.cz">xklima22@stud.fit.vutbr.cz</a> -
+		návrh a implementace back-endu
+	</dd>
+	<dd>Vojtěch Večeřa <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xvecer18@stud.fit.vutbr.cz">xvecer18@stud.fit.vutbr.cz</a> - 
+		návrh a implementace GUI + návrh databáze
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://xvecer18.php5.cz/">http://xvecer18.php5.cz/</a></dd>
+	<dd><a href="http://xvecer18.php5.cz/login">http://xvecer18.php5.cz/login</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>xadmin00</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>xnovak90</td><td>personalista</td><td>Personalista</td></tr>
+<tr><td>xpalka26</td><td>koordinator</td><td>Materiálový koordinátor</td></tr>
+<tr><td>xvecer18</td><td>technik</td><td>Technik</td></tr>
+<tr><td>xvesel19</td><td>zamestnanec</td><td>Zaměstnanec</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<p>IS je implemenován ve frameworcích Laravale 5.1 a Bootstrap</p>
+<p>Skripty implemenetující funkcionalitu odpovídající use-case diagramu se nachází v
+<i>/app/Http/</i>.</p>
+<ul>
+    <li>Správa zaměstnanců:
+	<ul><li>Imlementováno v souboru <i> Zamestnanci.php</i></li></ul>
+    </li>
+    <li>Správa uživatelů:
+	<ul><li>Imlementováno v souborech <i>Zamestnanci.php</i> a <i>User.php</i></li></ul>
+    </li>
+    <li>Správa oddělení:
+	<ul><li>Imlementováno v souboru <i>Oddělení.php</i></li></ul>
+    </li>
+    <li>Správa poruch:
+	<ul><li>Imlementováno v souboru <i>Poruchy.php</i></li></ul>
+    </li>
+    <li>Správa přesunů:
+	<ul><li>Imlementováno v souboru <i>Presuny.php</i></li></ul>
+    </li>
+    <li>Správa výpočetní techniky:
+	<ul><li>Imlementováno v souboru <i>Zarizeni.php</i></li></ul>
+    </li>
+</ul>
+
+<p>Role jsou nastavovány po přihlášení ve skriptu
+<i>/app/Http/Controllers/Auth/AuthController.php</i>, a použity ve skriptu <i>/app/Http/routes.php</i>, kde je pro správu přihlášení a rolí použit systém
+Middleware poskytovaný s použitým frameworkem rozšířený o obsluhovány skriptem
+<i>/app/Http/Middleware/RoleMiddleware.php</i> implemtující s námi definovanými rolemi. Na základě rolí
+jsou zpřístupněny jednotlivé stránky v rámci webu. Upravování hlavního menu na základě rolí je
+řešeno v souboru <i>/resources/view/layout/app.blade.php</i></p>
+
+<p>Všechny skripty starající se o výstupy a obsahující HTML a CSS kódy jsou umístěny ve složce
+<i>/resources/views/</i>. Skripty začínající <b>add_</b> a <b>edit_</b> implementují formuláře pro přidání nebo editaci a
+mazání záznamů. Zbylé skripty ve složce se starají o prezentaci dat uložených v databázi. V
+podsložkách jsou skripty generující výstupy při chybách, přihlašovací formulář apod.</p>
+
+<h4>Změny v návrhu:</h4>
+<p>Správy uživatelů a zaměstnanců byla spojeny, kvůli zjednodušení orientace v systém a
+zamezení problému typu, že nevíme jestli chceme upravit uživatele nebo zaměstnance. Byl taky
+pozměněn návrh databáze. Byly změněny některé datové typy identifikátorů k ulehčení použití
+<i>AUTO_INCREMENT</i> funkcionality a přidány sloupce pro detekci "smazaných" záznamů (z důvodu zachování
+konzistence databáze nelze záznam přímo mazat).</p>
+
+<h2>Instalace</h2>
+<ul>
+    <li>Požadavky: </li>
+    <ul>
+	<li>Composer</li>
+	<li>MySQL >= 5.6</li>
+	<li>PHP >= 5.5.9</li>
+	<li>OpenSSL PHP Extension</li>
+	<li>PDO PHP Extension</li>
+	<li>Mbstring PHP Extension</li>
+	<li>Tokenizer PHP Extension</li>
+    </ul>
+    <li>Ve složce do níž chceme umístit aplikaci provedeme:</li>
+    <ol>
+	<li><b>'composer create-project laravel/laravel ./'</b></li>
+	<li>Extrahujeme soubor .zip a rozbalíme pomocí <b>'unzip nazev_soubor.zip'</b></li>
+	<li>Poté si musíme vytvořit novou MySQL databázi a naimportovat do ní soubor
+	<b>'cvt.sql'</b> kódování zvolíme <b>utf-8</b></li>
+	<li>Nyní je třeba nastavit MySQL připojení vyplněním položek v souboru <b>'.env'</b></li>
+	<li>Následujícím krokem by mělo být nastavení složky <b>'/storage'</b>, aby byla zapisovatelná</li>
+	<li>Hotovo! Pokud je správně nastaven přístup k MySQL a fungují <b>.htaccess</b> soubory, tak by
+	měly být stránky funkční</li>	
+    </ol>
+</ul>
+
+<h2>Známé problémy</h2>
+<p>Není implementována možnost Tisk, která se vyskytuje v use-case diagramu. Taktéž jsme
+neimplementovali Přehledy, protože do značné míry lze považovat preprezentaci dat na stránkách jako 
+přehledy a jednalo by se tedy v dosti případech o redundantní stránky. Poslední neimplementovanou
+funkcí je Přehled o činnostech. Důvodem neimplementování toho případu užití je náš pocit, že toto  
+není potřeba reprezentovat jako webovou stránku a stačil by pro to obyčejný soubor.</p>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<%= bootstrap_form_with(model: employee, local: true, layout: :horizontal) do |form| %>
+  <%= form.text_field  :name, field_params %>
+  <%= form.text_field  :surname, field_params %>
+  <%= form.email_field :email, field_params %>
+  <%= form.select(:office_id, offices_dropdown(@offices, @employee.office), field_params(nil, true, 'Office *'), form_class) %>
+  <%= form.datetime_field  :birth_date,   field_params %>
+  <%= form.telephone_field :phone_mobile, field_params %>
+  <%= form.telephone_field :phone_office, field_params %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', employees_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

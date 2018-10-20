@@ -1,0 +1,40 @@
+<%= bootstrap_form_with(model: transfer, local: true, layout: :horizontal) do |form| %>
+  <% if transfer.persisted? %>
+    <%= form.text_field :device_id, 
+                        value: "ID: " + @device.id.to_s + ", brand: " + @device.brand + ", model: " + @device.model + ", from: " + @device.room.label, 
+                        control_col: "col-sm-9", 
+                        :disabled => true %>
+  <% else %>
+    <%= form.select :device_id, 
+                    @devices.collect{|d|["ID: " + d.id.to_s + ", brand: " + d.brand + ", model: " + d.model + ", from: " + d.room.label, d.id]}, 
+                    {class: "dropdown-menu", control_col: "col-sm-9", label: "Device *"}, 
+                    :required => true%>
+  <% end %>
+  <%= form.select :to_id, 
+                  @rooms.collect{|r|[r.label, r.id]}, 
+                  {class: "dropdown-menu", control_col: "col-sm-9", label: "To *"}, 
+                  :required => true %>
+  <%= form.select :author_id, 
+                  @employees.collect{|e|["ID: " + e.id.to_s + ", " + e.name + " " + e.surname, e.id]}, 
+                  {class: "dropdown-menu", control_col: "col-sm-9", label: "Author *"}, 
+                  :required => true %>
+  <% if (current_user.material_coordinator? or current_user.administrator?) and transfer.persisted?%>
+    <%= form.select :approved_id, 
+                    @employees.collect{|e|["ID: " + e.id.to_s + ", " + e.name + " " + e.surname, e.id]}, 
+                    {class: "dropdown-menu", control_col: "col-sm-9"}%>
+  <% end %>
+  <%= form.text_field :reason, control_col: "col-sm-9" %>
+  <%= form.datetime_local_field :requested_at, control_col: "col-sm-9", value: @transfer.request_date %>
+  <% if can? :update, Transfer %>
+    <%= form.datetime_local_field :done_at, control_col: "col-sm-9", value: @transfer.done_date %>
+  <% end %>
+
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', transfers_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

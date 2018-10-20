@@ -1,0 +1,35 @@
+Funkcionální a logické programování
+
+Projekt č.2 - Logický projekt
+
+Varianta: Turingov stroj
+Autor:    Daniel Klimaj (xklima22@stud.fit.vutbr.cz)
+Popis:    Simulátor nedeterministického turingovho stroja
+
+I) O programe
+Program načíta zo štandardného vstupu pravidlá vo formáte
+<Stav> <Symbol> <Nový_stav> <Zapisovaný_symbol/L/R>
+a počiatočný stav pásky. Potom vykoná simuláciu a vypíše postupnosť konfigurácií
+alebo vráti false v prípade chyby - zápis za ľavý okraj, nedostiahnuteľný
+koncový stav.
+
+II) Spustenie
+make
+./flp17-log < vstupny_subor
+
+III) Test
+K programu je priložená testovacia sada tvorená 9 testami:
+ 1 - Ukážkový TS zo zadania úlohy
+ 2 - TS s nedeterministickým výberom medzi nekonečným posuvom doprava alebo ukončením
+ 3 - TS s nedosiahnuteľným stavom
+ 4 - Komplexnejší nedeterministický výber medzi nekonečným posuvom, zápisom a ukončením
+ 5 - Posuv za ľavý okraj pásky
+ 6 - Rozhodnutie medzi posuvom za ľavý okraj pásky alebo správnym ukončením
+ 7 - Nedeterministický výber medzi nekonečným posuvom alebo ukončením
+ 8 - Nedosiahnuteľný koncový stav
+ 9 - Nekonečný posuv, ukončí sa na nedostatok pamäti
+
+Všetky testy s výnimkou testu 9 by mali skončiť v priebehu sekundy.
+
+Spustenie testov:
+make test

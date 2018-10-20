@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\MQTTWebSocket">
+      <UniqueIdentifier>{18aa37d7-edc0-46de-8af0-76ff67b9698f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WebSockets">
+      <UniqueIdentifier>{73216162-e15d-4a8d-ad6d-13bd4e83d2a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MQTTWebSocket">
+      <UniqueIdentifier>{494d6f97-c886-47be-88f8-bec3965351e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WebSockets">
+      <UniqueIdentifier>{d9b74d1b-2600-48a4-a810-8f22da53668a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WebSockets\libb64">
+      <UniqueIdentifier>{81c1ffa7-c037-44d5-8e2d-3e97ac8a6c6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WebSockets\libb64">
+      <UniqueIdentifier>{5a825893-50a3-4030-8f92-0b1bcff872eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="platformio.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\mqtt-websocket-mcu\MQTTWebSocketClient.cpp">
+      <Filter>Source Files\MQTTWebSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\arduinoWebSockets\src\WebSockets.cpp">
+      <Filter>Source Files\WebSockets</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\arduinoWebSockets\src\WebSocketsServer.cpp">
+      <Filter>Source Files\WebSockets</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\arduinoWebSockets\src\libb64\cdecode.c">
+      <Filter>Source Files\WebSockets\libb64</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\arduinoWebSockets\src\libb64\cencode.c">
+      <Filter>Source Files\WebSockets\libb64</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\arduinoWebSockets\src\libb64\cdecode_inc.h">
+      <Filter>Header Files\WebSockets\libb64</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\arduinoWebSockets\src\libb64\cencode_inc.h">
+      <Filter>Header Files\WebSockets\libb64</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\mqtt-websocket-mcu\MQTTWebSocketClient.h">
+      <Filter>Header Files\MQTTWebSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\mqtt-websocket-mcu\CircularByteBuffer.h">
+      <Filter>Header Files\MQTTWebSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\arduinoWebSockets\src\WebSockets.h">
+      <Filter>Header Files\WebSockets</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\arduinoWebSockets\src\WebSocketsClient.h">
+      <Filter>Header Files\WebSockets</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\arduinoWebSockets\src\WebSocketsServer.h">
+      <Filter>Header Files\WebSockets</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

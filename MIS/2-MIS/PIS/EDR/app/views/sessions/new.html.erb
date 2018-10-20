@@ -1,0 +1,23 @@
+<div class="sidenav">
+  <%= link_to 'Log In', login_path %>
+</div>
+
+<div class="main text-center">
+  <div class="container", style="padding-top: 20px">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key == 'error' ? 'danger' : key %>"><%= value %></div>
+    <% end %>
+  </div>
+  <h1>Log In</h1>
+  <%= form_tag sessions_path do %>
+    <div class="field", style="padding-top: 20px">
+      <%= label_tag :login %><br />
+      <%= text_field_tag :login, params[:login] %>
+    </div>
+    <div class="field", style="padding-top: 20px">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions", style="padding-top: 20px"><%= submit_tag "Log In" %></div>
+  <% end %>
+</div>

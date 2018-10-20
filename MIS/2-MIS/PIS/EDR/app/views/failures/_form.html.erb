@@ -1,0 +1,21 @@
+<%= bootstrap_form_with(model: failure, local: true, layout: :horizontal) do |form| %>
+  <%= form.select(:device_id, devices_dropdown(@devices, @failure.device), field_params(nil, true, 'Device *'), form_class) %>
+  <%= form.select(:announcer_id, announcers_dropdown(@employees, @failure.announcer), field_params(nil, true, 'Announcer *'), form_class) %>
+  <%= form.text_field :description, field_params %>
+  <% if (can? :update, Failure) and @failure.persisted? %>
+    <%= form.select(:technician_id, technicians_dropdown(@technicians, @failure.technician), field_params(nil, true, 'Technician *'), form_class) %>
+  <% end %>
+  <%= form.text_field :report, field_params %>
+  <%= form.datetime_local_field :announced_at, field_params.merge(value: @failure.announced_at) %>
+  <% if (can? :update, Failure) and @failure.persisted? %>
+  	<%= form.check_box :solved, field_params, checked_value = "true", unchecked_value = "false" %>
+  <% end %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', failures_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

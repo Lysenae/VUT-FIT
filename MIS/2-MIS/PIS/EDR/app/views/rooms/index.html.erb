@@ -1,0 +1,98 @@
+<p id="notice"><%= notice %></p>
+
+<div class="index" align="center">
+
+    <h1>Offices</h1>
+
+    <table class="table" style="width:80%; max-width:2500px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Label</th>
+          <th scope="col">Department</th>
+          <th></th>
+          <% if can? :update, Office %>
+            <th></th>
+          <% end %>
+          <% if can? :destroy, Office %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @offices.each do |office| %>
+          <tr>
+            <td><%= office.id%></td>
+            <td><%= office.room_label%></td>
+            <td><%= office.dpt_shortcut%></td>
+            <td><%= link_to 'Show', office %></td>
+            <% if can? :update, Office %>
+              <td><%= link_to 'Edit', edit_office_path(office) %></td>
+            <% end %>
+            <% if can? :destroy, Office %>
+              <td><%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% if can? :create, Office %>
+    <div class="btn btn-dark">  
+        <%= link_to 'New Office', new_office_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+    <% end %>
+    <div class="btn btn-dark">  
+        <%= link_to 'Back', root_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+
+    <h1 style="margin-top:40px">Schoolrooms</h1>
+
+    <table class="table" style="width:80%; max-width:2500px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Label</th>
+          <th scope="col">Department</th>
+          <th></th>
+          <% if can? :update, Schoolroom %>
+            <th></th>
+          <% end %>
+          <% if can? :destroy, Schoolroom %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @schoolrooms.each do |schoolroom| %>
+          <tr>
+            <td><%= schoolroom.id%></td>
+            <td><%= schoolroom.room_label%></td>
+            <td><%= schoolroom.dpt_shortcut%></td>
+            <td><%= link_to 'Show', schoolroom %></td>
+            <% if can? :update, Schoolroom %>
+              <td><%= link_to 'Edit', edit_schoolroom_path(schoolroom) %></td>
+            <% end %>
+            <% if can? :destroy, Schoolroom %>
+              <td><%= link_to 'Destroy', schoolroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% if can? :create, Schoolroom %>
+    <div class="btn btn-dark">
+        <%= link_to 'New Schoolroom', new_schoolroom_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+    <% end %>
+    <div class="btn btn-dark">
+        <%= link_to 'Back', root_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+<div>

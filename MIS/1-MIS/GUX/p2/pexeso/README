@@ -1,0 +1,6 @@
+1. Build
+    qmake
+    make
+
+2. Run
+    ./pexeso

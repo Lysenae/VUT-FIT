@@ -1,0 +1,17 @@
+label.required:after {
+  content:" *";
+}
+
+td, th, tr {
+  text-align: center;
+}
+
+#error_explanation li {
+  color: red;
+  font-size: 20px;
+}
+
+.index {
+	margin-bottom: 30px;
+}
+

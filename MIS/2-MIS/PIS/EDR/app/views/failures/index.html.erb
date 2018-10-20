@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<div class="index" align="center">
+
+    <h1>Failures</h1>
+
+    <table class="table" style="width:80%; max-width:2500px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Device</th>
+          <th scope="col">Announcer</th>
+          <th scope="col">Date of announcement</th>
+          <th scope="col">Technician</th>
+          <th scope="col">Solved</th>
+          <th></th>
+          <% if can? :update, Failure %>
+            <th></th>
+          <% end %>
+          <% if can? :destroy, Failure %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @failures.each do |failure| %>
+          <tr>
+            <td><%= failure.id%></td>
+            <td><%= failure.device.brand%> <%= failure.device.model%></td>
+            <td><%= failure.announcer.name%> <%= failure.announcer.surname%></td>
+						<td><%= failure.created_at%></td>
+						<td>
+							<% if failure.technician != nil %>
+								<%= failure.technician.name%> <%= failure.technician.surname%>
+							<% end %>
+						</td>
+						<td><%= failure.solved_str %></td>
+            <td><%= link_to 'Show', failure %></td>
+            <% if can? :update, Failure %>
+              <td><%= link_to 'Edit', edit_failure_path(failure) %></td>
+            <% end %>
+            <% if can? :destroy, Failure %>
+              <td><%= link_to 'Destroy', failure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% if can? :create, Failure %>
+      <div class="btn btn-dark">
+          <%= link_to 'New Failure', new_failure_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+      </div>
+    <% end %>
+    <div class="btn btn-dark">
+        <%= link_to 'Back', root_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+<div>

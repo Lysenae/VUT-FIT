@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="index" align="center">
+
+    <h1>Devices</h1>
+
+    <table class="table" style="width:80%; max-width:2500px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+          <th scope="col">Room</th>
+          <th scope="col">Administrator</th>
+          <th></th>
+          <% if can? :update, Device %>
+            <th></th>
+          <% end %>
+          <% if can? :destroy, Device %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @devices.each do |device| %>
+          <tr>
+            <td><%= device.id %></td>
+            <td><%= device.brand %></td>
+            <td><%= device.model %></td>
+            <td><%= device.room.label %></td>
+            <td>
+                <%= device.employee.name%> <%= device.employee.surname%>
+            </td>
+            <td><%= link_to 'Show', device %></td>
+            <% if can? :update, Device %>
+              <td><%= link_to 'Edit', edit_device_path(device) %></td>
+            <% end %>
+            <% if can? :destroy, Device %>
+              <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% if can? :create, Device %>
+      <div class="btn btn-dark">
+          <%= link_to 'New Device', new_device_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+      </div>
+    <% end %>
+    <div class="btn btn-dark">
+        <%= link_to 'Back', root_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+
+<div>

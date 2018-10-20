@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div  class="index" align="center">
+
+    <h1>Employees</h1>
+
+    <table class="table" style="width:80%; max-width:2500px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Email</th>
+          <th scope="col">Office</th>
+          <th></th>
+          <% if can? :update, Employee %>
+            <th></th>
+          <% end %>
+          <% if can? :destroy, Employee %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.id%></td>
+            <td><%= employee.name%></td>
+            <td><%= employee.surname%></td>
+            <td><%= employee.email%></td>
+            <td><%= employee.office.room.label%></td>
+            <td><%= link_to 'Show', employee %></td>
+            <% if can? :update, Employee %>
+              <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+            <% end %>
+            <% if can? :update, Employee %>
+              <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% if can? :create, Employee %>
+      <div class="btn btn-dark">
+          <%= link_to 'New Employee', new_employee_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+      </div>
+    <% end %>
+    <div class="btn btn-dark">
+        <%= link_to 'Back', root_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+<div>

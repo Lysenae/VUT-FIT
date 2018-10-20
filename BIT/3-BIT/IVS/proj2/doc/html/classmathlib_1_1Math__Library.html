@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Kalkulacka: Dokumentace třídy mathlib.Math_Library</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulacka
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="namespaces.html"><span>Balíky</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Třídy</span></a></li>
+      <li><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Seznam&#160;tříd</span></a></li>
+      <li><a href="classes.html"><span>Rejstřík&#160;tříd</span></a></li>
+      <li><a href="inherits.html"><span>Hierarchie&#160;tříd</span></a></li>
+      <li><a href="functions.html"><span>Seznam&#160;členů&#160;tříd</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classmathlib_1_1Math__Library.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Prostory jmen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Proměnné</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Veřejné metody</a> &#124;
+<a href="#pub-attribs">Veřejné atributy</a> &#124;
+<a href="classmathlib_1_1Math__Library-members.html">Seznam všech členů</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace třídy mathlib.Math_Library</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Diagram dědičnosti pro třídu mathlib.Math_Library</div>
+<div class="dyncontent">
+<div class="center"><img src="classmathlib_1_1Math__Library__inherit__graph.gif" border="0" usemap="#mathlib_8Math__Library_inherit__map" alt="Inheritance graph"/></div>
+<map name="mathlib_8Math__Library_inherit__map" id="mathlib_8Math__Library_inherit__map">
+</map>
+</div>
+<div class="dynheader">
+Diagram tříd pro mathlib.Math_Library:</div>
+<div class="dyncontent">
+<div class="center"><img src="classmathlib_1_1Math__Library__coll__graph.gif" border="0" usemap="#mathlib_8Math__Library_coll__map" alt="Collaboration graph"/></div>
+<map name="mathlib_8Math__Library_coll__map" id="mathlib_8Math__Library_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Veřejné metody</h2></td></tr>
+<tr class="memitem:a1c93a3c5ed9666e7435ce5018c9b878e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a1c93a3c5ed9666e7435ce5018c9b878e">__init__</a></td></tr>
+<tr class="separator:a1c93a3c5ed9666e7435ce5018c9b878e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adffa3641f7947ac36ffffc5f9a9bae92"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#adffa3641f7947ac36ffffc5f9a9bae92">add</a></td></tr>
+<tr class="separator:adffa3641f7947ac36ffffc5f9a9bae92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0fa4eb143e8ce716b5b6c6a59c5586e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#ad0fa4eb143e8ce716b5b6c6a59c5586e">sub</a></td></tr>
+<tr class="separator:ad0fa4eb143e8ce716b5b6c6a59c5586e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f6ea94af49c48a06e1ad99f9c93a2d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a90f6ea94af49c48a06e1ad99f9c93a2d">mul</a></td></tr>
+<tr class="separator:a90f6ea94af49c48a06e1ad99f9c93a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8617979d7f0eac2a57d89490b94da107"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a8617979d7f0eac2a57d89490b94da107">div</a></td></tr>
+<tr class="separator:a8617979d7f0eac2a57d89490b94da107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a332c80525b66727a53d676e7b709a7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a8a332c80525b66727a53d676e7b709a7">pow</a></td></tr>
+<tr class="separator:a8a332c80525b66727a53d676e7b709a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f9fa0fac862051ad161c787eec5079"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#aa9f9fa0fac862051ad161c787eec5079">pow2</a></td></tr>
+<tr class="separator:aa9f9fa0fac862051ad161c787eec5079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fe1b183b8541a511509a98cf983c90"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a63fe1b183b8541a511509a98cf983c90">pow3</a></td></tr>
+<tr class="separator:a63fe1b183b8541a511509a98cf983c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf79a4e59d113f4121267d069a638f8f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#abf79a4e59d113f4121267d069a638f8f">sqrt</a></td></tr>
+<tr class="separator:abf79a4e59d113f4121267d069a638f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a024ab4f1afa4013a7b6ac43cf704b5b8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a024ab4f1afa4013a7b6ac43cf704b5b8">mod</a></td></tr>
+<tr class="separator:a024ab4f1afa4013a7b6ac43cf704b5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f6e128799f8336923cb838666d44752"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a7f6e128799f8336923cb838666d44752">neg</a></td></tr>
+<tr class="separator:a7f6e128799f8336923cb838666d44752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f28a171f0efab955991ce748f12b63"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a35f28a171f0efab955991ce748f12b63">fact</a></td></tr>
+<tr class="separator:a35f28a171f0efab955991ce748f12b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2671e17c6324ead21bb9ae77d533993e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#a2671e17c6324ead21bb9ae77d533993e">fact2</a></td></tr>
+<tr class="separator:a2671e17c6324ead21bb9ae77d533993e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Veřejné atributy</h2></td></tr>
+<tr class="memitem:ad4867f45f04a75fa7e5be7c7d41bb703"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmathlib_1_1Math__Library.html#ad4867f45f04a75fa7e5be7c7d41bb703">lookup</a></td></tr>
+<tr class="separator:ad4867f45f04a75fa7e5be7c7d41bb703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailní popis</h2>
+<div class="textblock"><pre class="fragment">Matematicka kniznica - obsahuje elementarne operacie sucet, rozdiel, nasobenie, delenie,
+umocnovanie, modulo atd.
+@class Math_Library
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00012">12</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+</div><h2 class="groupheader">Dokumentace konstruktoru a destruktoru</h2>
+<a class="anchor" id="a1c93a3c5ed9666e7435ce5018c9b878e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Konstruktor.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00018">18</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentace k metodám</h2>
+<a class="anchor" id="adffa3641f7947ac36ffffc5f9a9bae92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.add </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Sucet dvoch cisel.
+@param a Scitanec 1
+@param b Scitanec 2
+@return Vracia sucet cisel.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00024">24</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8617979d7f0eac2a57d89490b94da107"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.div </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Podiel dvoch cisel.
+@param a Delenec
+@param b Delitel
+@return Vracia podiel cisel.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00051">51</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35f28a171f0efab955991ce748f12b63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.fact </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Faktorial cisla - iteracna verzia.
+@param a Cislo
+@return Vracia faktorial cisla.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00122">122</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2671e17c6324ead21bb9ae77d533993e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.fact2 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Faktorial cisla - rekurzivna verzia.
+@param a Cislo
+@see https://en.wikipedia.org/wiki/Memoization
+@return Vracia faktorial cisla.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00133">133</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+<p><div class="dynheader">
+Tato funkce volá...</div>
+<div class="dyncontent">
+<div class="center"><img src="classmathlib_1_1Math__Library_a2671e17c6324ead21bb9ae77d533993e_cgraph.gif" border="0" usemap="#classmathlib_1_1Math__Library_a2671e17c6324ead21bb9ae77d533993e_cgraph" alt=""/></div>
+<map name="classmathlib_1_1Math__Library_a2671e17c6324ead21bb9ae77d533993e_cgraph" id="classmathlib_1_1Math__Library_a2671e17c6324ead21bb9ae77d533993e_cgraph">
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a024ab4f1afa4013a7b6ac43cf704b5b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.mod </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Celociselny zvysok po deleni cisel.
+@param a Delenec
+@param b Delitel
+@return Vracia celociselny zvysok po deleni cisel - modulo.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00102">102</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90f6ea94af49c48a06e1ad99f9c93a2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.mul </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Sucin dvoch cisel.
+@param a Cinitel 1
+@param b Cinitel 2
+@return Vracia sucin cisel.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00042">42</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f6e128799f8336923cb838666d44752"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.neg </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Zmeni znamienko cisla.
+@param a Cislo
+@return Vracia cislo s opacnym znamienkom.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00114">114</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a332c80525b66727a53d676e7b709a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.pow </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Umocnenie dvoch cisel.
+@param a Zaklad
+@param b Exponent
+@return Vracia b-tu mocninu cisla a.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00064">64</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9f9fa0fac862051ad161c787eec5079"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.pow2 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Umocnenie na druhu.
+@param a Zaklad
+@return Vracia druhu mocninu cisla a.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00076">76</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63fe1b183b8541a511509a98cf983c90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.pow3 </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Umocnenie na druhu.
+@param a Zaklad
+@return Vracia tretiu mocninu cisla a.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00084">84</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf79a4e59d113f4121267d069a638f8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.sqrt </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Druha odmocnina cisla.
+@param a Cislo na odmocnenie
+@return Vracia druhu odmocninu cisla a.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00092">92</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0fa4eb143e8ce716b5b6c6a59c5586e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def mathlib.Math_Library.sub </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Rozdiel dvoch cisel.
+@param a Mensenec
+@param b Mensitel
+@return Vracia rozdiel cisel.
+</pre> 
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00033">33</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentace k datovým členům</h2>
+<a class="anchor" id="ad4867f45f04a75fa7e5be7c7d41bb703"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mathlib.Math_Library.lookup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definice je uvedena na řádku <a class="el" href="mathlib_8py_source.html#l00022">22</a> v souboru <a class="el" href="mathlib_8py_source.html">mathlib.py</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentace pro tuto třídu byla generována z následujícího souboru:<ul>
+<li><a class="el" href="mathlib_8py_source.html">mathlib.py</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacemathlib.html">mathlib</a></li><li class="navelem"><a class="el" href="classmathlib_1_1Math__Library.html">Math_Library</a></li>
+    <li class="footer">Generováno po 25. dub 2016 18.42:20 pro projekt Kalkulacka programem
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

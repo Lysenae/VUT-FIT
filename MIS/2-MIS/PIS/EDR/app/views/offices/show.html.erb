@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>Office ID: <%= @office.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> 
+          <td><b>Label</b></td> 
+          <td><%=@office.room.label%></td> 
+        </tr>
+        <tr>
+          <td><b>Department</b></td> 
+          <td><%=@office.room.department.name%> (<%=@office.room.department.shortcut%>)</td> 
+        </tr>
+        <tr> 
+          <td><b>Location</b></td> 
+          <td><%=@office.room.location%></td> 
+        </tr>
+        <tr> 
+          <td><b>Width</b></td> 
+          <td><%=@office.room.width%></td> 
+        </tr>
+        <tr> 
+          <td><b>Length</b></td> 
+          <td><%=@office.room.length%></td> 
+        </tr>
+        <tr> 
+          <td><b>Height</b></td> 
+          <td><%=@office.room.height%></td> 
+        </tr>
+        <tr> 
+          <td><b>Ethernet sockets</b></td> 
+          <td><%=@office.ethernet_sockets%></td> 
+        </tr>
+        <tr> 
+          <td><b>Electrical sockets</b></td> 
+          <td><%=@office.electrical_sockets%></td> 
+        </tr>
+        <tr> 
+          <td><b>Created at</b></td> 
+          <td><%=@office.created_at%></td> 
+        </tr>
+        <tr> 
+          <td><b>Updated at</b></td> 
+          <td><%=@office.updated_at%></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <% if can? :update, Office %>
+    <div class="btn btn-dark">
+        <%= link_to 'Edit', edit_office_path(@office), {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+  <% end %>
+  <div class="btn btn-dark">  
+      <%= link_to 'Back', rooms_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

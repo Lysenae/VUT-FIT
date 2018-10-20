@@ -1,0 +1,17 @@
+<%= bootstrap_form_with(model: user, local: true, layout: :horizontal) do |form| %>
+  <%= form.text_field :login, control_col: "col-sm-9" %>
+  <%= form.password_field :password, control_col: "col-sm-9" %>
+  <%= form.password_field :password_confirmation, control_col: "col-sm-9" %>
+  <%= form.select(:employee, options_from_collection_for_select(@employees, 'id', 'fullname_with_bday', @current_employee),
+    { control_col: "col-sm-9" }, { class: "form-control" }) %>
+  <%= form.select(:right, options_from_collection_for_select(@rights, 'id', 'name', @current_right),
+    { control_col: "col-sm-9" }, { class: "form-control" }) %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', users_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

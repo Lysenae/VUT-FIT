@@ -1,0 +1,5 @@
+print_recursive.o: print_recursive.c print_recursive.h recursive.h \
+ timeout.h
+recfun.o: recfun.c timeout.h print_recursive.h
+recursive.o: recursive.c recursive.h timeout.h
+timeout.o: timeout.c timeout.h

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices>
+  <host mac="0800.2717.A19F" group="gr1">
+    <ipv4>10.190.11.57</ipv4>
+    <ipv6>FE80:0000:0000:0000:0A00:27FF:FE17:A19F</ipv6>
+    <ipv6>2001:67c:1220:c1a0:a00:27ff:fe17:a19f</ipv6>
+  </host>
+  <host mac="0800.273E.FFA2">
+    <ipv4>192.168.1.1</ipv4>
+  </host>
+  <host mac="0800.2776.DE10"  group="gr1">
+    <ipv4>10.190.8.76</ipv4>
+    <ipv6>FE80:0000:0000:0000:0A00:27FF:FE76:DE10</ipv6>
+    <ipv6>2001:67c:1220:c1a0:b595:e151:8df7:8055</ipv6>
+  </host>
+</devices>

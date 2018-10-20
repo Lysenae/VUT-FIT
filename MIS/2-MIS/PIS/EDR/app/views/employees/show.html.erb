@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>Employee ID: <%= @employee.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Name</b></td>
+          <td><%=@employee.name%></td>
+        </tr>
+        <tr>
+          <td><b>Surname</b></td>
+          <td><%=@employee.surname%></td>
+        </tr>
+        <tr>
+          <td><b>Email</b></td>
+          <td><%=@employee.email%></td>
+        </tr>
+        <tr>
+          <td><b>Office</b></td>
+          <td><%=@employee.office.room.label%></td>
+        </tr>
+        <tr>
+          <td><b>Birth Date</b></td>
+          <td><%=@employee.birth_date%></td>
+        </tr>
+        <tr>
+          <td><b>Phone Mobile</b></td>
+          <td><%=@employee.phone_mobile%></td>
+        </tr>
+        <tr>
+          <td><b>Phone Office</b></td>
+          <td><%=@employee.phone_office%></td>
+        </tr>
+        <tr>
+          <td><b>Active</b></td>
+          <td><%=@employee.active%></td>
+        </tr>
+        <tr>
+          <td><b>Created at</b></td>
+          <td><%=@employee.created_at%></td>
+        </tr>
+        <tr>
+          <td><b>Updated at</b></td>
+          <td><%=@employee.updated_at%></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <% if can? :update, Employee %>
+    <div class="btn btn-dark">
+        <%= link_to 'Edit', edit_employee_path(@employee), {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+  <% end %>
+  <div class="btn btn-dark">
+      <%= link_to 'Back', employees_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

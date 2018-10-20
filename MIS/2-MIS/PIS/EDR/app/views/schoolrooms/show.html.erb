@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>Schoolroom ID: <%= @schoolroom.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Label</b></td> 
+          <td><%=@schoolroom.room.label%></td> 
+        </tr>
+        <tr> 
+          <td><b>Location</b></td> 
+          <td><%=@schoolroom.room.location%></td> 
+        </tr>
+        <tr>
+          <td><b>Department</b></td> 
+          <td><%=@schoolroom.room.department.name%> (<%=@schoolroom.room.department.shortcut%>)</td> 
+        </tr>
+        <tr>
+          <td><b>Width</b></td> 
+          <td><%=@schoolroom.room.width%></td> 
+        </tr>
+        <tr>
+          <td><b>Length</b></td> 
+          <td><%=@schoolroom.room.length%></td> 
+        </tr>
+        <tr> 
+          <td><b>Height</b></td> 
+          <td><%=@schoolroom.room.height%></td> 
+        </tr>
+        <tr>
+          <td><b>Seats</b></td> 
+          <td><%=@schoolroom.seats%></td> 
+        </tr>
+        <tr>
+          <td><b>Rows</b></td> 
+          <td><%=@schoolroom.rows%></td> 
+        </tr>
+        <tr>
+          <td><b>Blocks</b></td> 
+          <td><%=@schoolroom.blocks%></td> 
+        </tr>
+        <tr>
+          <td><b>Created at</b></td> 
+          <td><%=@schoolroom.created_at%></td> 
+        </tr>
+        <tr>
+          <td><b>Updated at</b></td> 
+          <td><%=@schoolroom.updated_at%></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <% if can? :update, Schoolroom %>
+    <div class="btn btn-dark">
+        <%= link_to 'Edit', edit_schoolroom_path(@schoolroom), {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+  <% end %>
+  <div class="btn btn-dark">
+      <%= link_to 'Back', rooms_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

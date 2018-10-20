@@ -1,0 +1,19 @@
+<%= bootstrap_form_with(model: office, local: true, layout: :horizontal) do |form| %>
+  <%= form.text_field :label, value: @office.room_label, control_col: "col-sm-9" %>
+  <%= form.select(:department, @office.departments_dropdown,
+    { control_col: "col-sm-9" }, { class: "form-control" }) %>
+  <%= form.text_field :location, value: @office.location, control_col: "col-sm-9" %>
+  <%= form.number_field :width, value: @office.width, control_col: "col-sm-9", step: 0.1, in: 0...10000000 %>
+  <%= form.number_field :length, value: @office.length, control_col: "col-sm-9", step: 0.1, in: 0...10000000 %>
+  <%= form.number_field :height, value: @office.height, control_col: "col-sm-9", step: 0.1, in: 0...10000000 %>
+  <%= form.number_field :ethernet_sockets, value: @office.eth_sockets, control_col: "col-sm-9", step: 1, in: 0...10000000 %>
+  <%= form.number_field :electrical_sockets, value: @office.el_sockets, control_col: "col-sm-9", step: 1, in: 0...10000000 %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', rooms_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

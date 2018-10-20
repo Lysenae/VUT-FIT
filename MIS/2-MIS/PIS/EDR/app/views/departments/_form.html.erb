@@ -1,0 +1,13 @@
+<%= bootstrap_form_with(model: department, local: true, layout: :horizontal) do |form| %>
+  <%= form.text_field :name,        field_params %>
+  <%= form.text_field :shortcut,    field_params %>
+  <%= form.text_field :description, field_params %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', departments_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

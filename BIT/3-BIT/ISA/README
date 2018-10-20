@@ -1,0 +1,48 @@
+Autor:   Daniel Klimaj; xklima22@stud.fit.vutbr.cz
+Projekt: Analýza BitTorrent služby KickassTorrents
+
+I) Popis projektu
+Aplikacia je implementovana v jazyku Python 2.7.
+Aplikacia podla zadanych parametrov vykonava v pripade, ze su vsetky subory
+validne pre tuto aplikaciu:
+  -r URL    Stiahnutie RSS feedu zo zadanej URL, stiahnutie prveho torrentu,
+            ziskanie zoznamu trackerov z torrentu, kontaktovanie trackerov a
+            ziskanie peerlistu(ov) a zapis peerlistu(ov) do suboru
+            (INFOHASH).peerlist
+  - i RSS   stiahnutie prveho torrentu uvedeneho v subore RSS,
+            ziskanie zoznamu trackerov z torrentu, kontaktovanie trackerov a
+            ziskanie peerlistu(ov) a zapis peerlistu(ov) do suboru
+            (INFOHASH).peerlist
+  -t TFILE  ziskanie zoznamu trackerov z torrentu TFILE, kontaktovanie trackerov a
+            ziskanie peerlistu(ov) a zapis peerlistu(ov) do suboru
+            (INFOHASH).peerlist
+  -a FAKE   Dodatocny parameter pre vyssie uvedene parametre, ktory sposobi, ze
+            sa miesto trackerov z torrentu ako tracker pouzije url FAKE.
+  -h        Vypis napovedy
+
+II) Pouzitie
+  make
+  ./antipirat (-r url|-i filename|-t filename) [-a url]
+
+  Spustenim make sa vytvori symlink k suboru antipirat.py
+
+III) Pouzite kniznice
+  bencode  - https://pypi.python.org/pypi/BitTorrent-bencode
+  requests - http://docs.python-requests.org/en/latest/
+
+IV) Zoznam suborov
+  Makefile
+  README
+  manual.pdf
+  do_tests.sh
+  antipirat.py
+  log.py
+  rss.py
+  rss_document.py
+  rss_node.py
+  torrent.py
+  tracker.py
+
+  bencode  - Priecinok obsahuje pouzitu kniznicu bencode
+  requests - Priecinok obsahuje ppuzitu kniznicu requests
+  test     - Priecinok obsahuje subory potrebne k spusteniu do_tests.sh (make test)

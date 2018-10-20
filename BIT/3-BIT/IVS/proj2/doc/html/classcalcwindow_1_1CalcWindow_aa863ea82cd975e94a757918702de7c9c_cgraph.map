@@ -1,0 +1,10 @@
+<map id="calcwindow.CalcWindow.handle_function" name="calcwindow.CalcWindow.handle_function">
+<area shape="rect" id="node2" href="$classcalcwindow_1_1CalcWindow.html#a53eab8bd00d381a79ad97fda6ebab8df" title="calcwindow.CalcWindow.set\l_entry" alt="" coords="558,5,749,46"/>
+<area shape="rect" id="node3" href="$classcalcwindow_1_1CalcWindow.html#aa271af7d47de2cb3ff5bb0d43318f511" title="calcwindow.CalcWindow.calculate\l_binary" alt="" coords="541,70,765,111"/>
+<area shape="rect" id="node4" href="$classcalcwindow_1_1CalcWindow.html#ac2077142bdc1bf41a1f59f02201ba66f" title="calcwindow.CalcWindow.recognize\l_function" alt="" coords="265,190,493,231"/>
+<area shape="rect" id="node5" href="$classcalcwindow_1_1CalcWindow.html#a9d32d465cae99fa354bdb82fe86f7db9" title="calcwindow.CalcWindow.calculate" alt="" coords="267,139,491,165"/>
+<area shape="rect" id="node6" href="$classcalcwindow_1_1CalcWindow.html#a0c11147a55d367fd2eaa19a02295b8f1" title="calcwindow.CalcWindow.is\l_binary" alt="" coords="562,266,745,307"/>
+<area shape="rect" id="node7" href="$classcalcwindow_1_1CalcWindow.html#a98e8528c9fd0fd57292ea4b8c50806ff" title="calcwindow.CalcWindow.binary\l_operator" alt="" coords="550,331,757,373"/>
+<area shape="rect" id="node8" href="$classcalcwindow_1_1CalcWindow.html#a9a7c93eb3731d356bc9b74210096559c" title="calcwindow.CalcWindow.is\l_unary" alt="" coords="562,135,745,177"/>
+<area shape="rect" id="node9" href="$classcalcwindow_1_1CalcWindow.html#ab35db16e970dc027c08458c0aab1350d" title="calcwindow.CalcWindow.calculate\l_unary" alt="" coords="541,201,765,242"/>
+</map>

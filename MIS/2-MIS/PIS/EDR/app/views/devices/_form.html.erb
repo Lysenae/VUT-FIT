@@ -1,0 +1,17 @@
+<%= bootstrap_form_with(model: device, local: true, layout: :horizontal) do |form| %>
+  <%= form.text_field :brand, field_params(@device.brand) %>
+  <%= form.text_field :model, field_params(@device.model) %>
+  <%= form.select(:room_id, rooms_dropdown(@rooms, @device.room), field_params(nil, true, 'Room *'), form_class) %>
+  <%= form.select(:employee_id, employees_dropdown(@employees, @device.employee), field_params(nil, true, 'Responsible *'), form_class) %>
+  <%= form.number_field :price, decimal_num_field_params(@device.price) %>
+  <%= form.text_field :specification, field_params(@device.specification) %>
+  <%= form.text_field :status, field_params(@device.status) %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', devices_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

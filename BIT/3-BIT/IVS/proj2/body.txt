@@ -1,0 +1,3 @@
+xtomci00 5 (Makefile, Instalator, Odinstalator, Testovanie, Dokumentacia)
+xmalik14 5 (GUI, Navrh grafickeho rozhrania)
+xklima22 5 (Matematicka kniznica - funkcie, operacie)

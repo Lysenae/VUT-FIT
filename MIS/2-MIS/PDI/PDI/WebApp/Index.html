@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="Resources/StyleSheet.css">
+    <link rel="icon" href="Resources/icon.ico">
+    <title>TurnOn - Cluster Administration</title>
+</head>
+<body>
+    <div id="headerDiv">
+        <h1>TurnOn</h1>
+        <h2>Welcome to netsearch cluster administration!</h2>
+    </div>    
+
+    <div id="machineList">
+        <!-- Entries for all machines will be appended -->
+    </div>
+
+    <div id="avaiableMachines">
+        <p id="menuHeader">Available machines:</p>
+        <ul id="mcus" />
+        <!-- List of all available machines will be appended -->
+    </div>
+    
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        // Read Action URI
+        var readUriMcu = 'api/mcu/read';
+        var readUriStrip = 'api/strip/read';
+
+        // Icons for ON/OFF
+        var onMcu = "<img src=\"Resources/powerOn.png\" alt=\"Machine is ON\" title=\"Machine is ON\">";
+        var offMcu = "<img src=\"Resources/powerOff.png\" alt=\"Machine is OFF\" title=\"Machine is OFF\">";
+        var onStrip = "<img src=\"Resources/powerOn.png\" alt=\"Power is ON\" title=\"Power is ON\">";
+        var offStrip = "<img src=\"Resources/powerOff.png\" alt=\"Power is OFF\" title=\"Power is OFF\">";
+
+        // Load the page
+        $(document).ready(function () {
+            onLoad();
+        });
+
+        function onLoad() {
+            // We need the data before formating the page
+            $.ajaxSetup({
+                async: false
+            });
+
+            // Read Strip table
+            var stripData;
+            $.getJSON(readUriStrip)
+                .done(function (data) {
+                    stripData = data;
+                });/*
+                // If failed, connect to broker and reload the page
+                .fail(function (data) {
+                    $.getJSON(readUriMcu);
+                    alert("Hoj")
+                    window.setTimeout(location.reload, 5000);
+                }
+            );*/
+
+            // Read MCU table
+            $.getJSON(readUriMcu).done(function (data) {
+                // On success, 'data' contains a list of machines
+                $.each(data, function (key, item) {
+                    // Add a list item for available machines.
+                    $('<li>', { html: formatListItem(item) }).appendTo($('#mcus'));
+
+                    // Add an entry for a single machine
+                    var e = $('<div class="machine" id="' + item.DeviceId + 'Machine">' + formatMachine(item, stripData) + '</div>');
+                    $('#machineList').append(e);
+
+                });
+            });            
+        }
+
+        // Format single item of available machines
+        function formatListItem(item) {
+            return "<a href=\"#" + item.DeviceId + "Machine\">" + (item.Powered ? onMcu : offMcu) + " " + item.DeviceId + "</a>";
+        }
+
+        // Format each machine entry
+        function formatMachine(item, stripData) {
+            var name = '<div class="headerMachineDiv"><p class="headerMachine">' + item.DeviceId + '</p></div>';
+            var desc = '<div class="machineDescDiv"><p>Status:</p><p>Temperature:</p></div>';
+            var values = '<div class="machineValuesDiv"><p>' + (item.Powered ? onMcu : offMcu) + '</p><p>' + item.Temperature + '°C</p></div>';
+            var buttons = '<div class="machineButtonsDiv">' + (item.Powered ? createOnButtons(item.DeviceId) : createOffButtons(item.DeviceId)) + '</div >';
+            var power = '<div class="headerStrip"><p class="headerStripP">Power Control</p></div>';
+            var strip = '<p class="headerStripMissing">No power control connected.</p>';
+
+            $.each(stripData, function (key, stripUnit) {
+                if (stripUnit.DeviceId == item.DeviceId) {
+                    strip = '<div class="headerStripValue">' + formatStrip(stripUnit) + '</div>';
+                }
+            });
+
+            return name + desc + values + buttons + power + strip;
+        }
+
+        // Create buttons for machine that is running
+        function createOnButtons(id) {
+            var offButton = '<button onclick="postOff(\'' + id + '\')" class="postOff">Turn OFF</button>';
+            var restartButton = '<button onclick="postRestart(\'' + id + '\')" class="postRestart">Reset</button>';
+            var killButton = '<button onclick="postKill(\'' + id + '\')" class="postKill">Hard Shutdown</button>';
+
+            return offButton + restartButton + killButton;
+        }
+
+        // Create buttons for machine that is off
+        function createOffButtons(id) {
+            return '<button onclick="postOn(\'' + id + '\')" class="postOn">Turn ON</button>';
+        }
+
+        // Format strip info
+        function formatStrip(item) {
+            var desc = '<div class="stripDescDiv"><p>Status:</p><p>Consumption:</p></div>';
+            var values = '<div class="stripValuesDiv"><p>' + (item.Powered ? onStrip : offStrip) + '</p><p>' + item.EnergyConsumption + ' W</p></div>';
+            var buttons = '<div class="stripButtonsDiv">' + (item.Powered ? createStripOnButtons(item.DeviceId) : createStripOffButtons(item.DeviceId)) + '</div> <p> </p>';
+
+            return desc + values + buttons;
+        }
+
+        function createStripOnButtons(id) {
+            return '<button onclick="postStripOff(\'' + id + '\')" class="postStripOff">Turn OFF</button>';
+        }
+
+        function createStripOffButtons(id) {
+            return '<button onclick="postStripOn(\'' + id + '\')" class="postStripOn">Turn ON</button>';
+        }
+
+        // Possible actions
+        function postOff(id) {
+            if (confirm("Do you really want to turn OFF " + id + " ?"))
+                $.post("/api/mcu/poweroff/" + id);
+        }
+
+        function postOn(id) {
+            if (confirm("Do you really want to turn ON " + id + " ?"))
+                $.post("/api/mcu/poweron/" + id);
+        }
+
+        function postKill(id) {
+            if (confirm("Do you really want to HARD SHUTDOWN " + id + " ?"))
+                $.post("/api/mcu/kill/" + id);
+        }
+
+        function postRestart(id) {
+            if (confirm("Do you really want to RESET " + id + " ?"))
+                $.post("/api/mcu/restart/" + id);
+        }
+
+        function postStripOff(id) {
+            if (confirm("Do you really want to turn OFF the POWER for " + id + " ?"))
+                $.post("/api/strip/poweroff/" + id);
+        }
+
+        function postStripOn(id) {
+            if (confirm("Do you really want to turn ON the POWER for " + id + " ?"))
+                $.post("/api/strip/poweron/" + id);
+        }
+
+        // Smooth scrolling
+        $(document).on('click', 'a[href^="#"]', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+        });
+
+    </script>
+</body>
+</html>

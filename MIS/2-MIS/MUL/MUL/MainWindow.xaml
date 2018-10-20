@@ -1,0 +1,220 @@
+﻿<Window x:Class="MUL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MUL"
+        mc:Ignorable="d"
+        Title="MUL" Height="440" Width="525" MinWidth="400" MinHeight="250" Background="#EEEEEE">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Name="ControlsGrid" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Click="OpenClicked" Name="BtnOpen" ToolTip="Open tracks">
+                <Image Source="Resources/open.png"/>
+            </Button>
+            <Button Grid.Column="1" Click="SaveClicked" Name="BtnSave" ToolTip="Save updated tags">
+                <Image Source="Resources/save.png"/>
+            </Button>
+            <Button Grid.Column="3" Click="PlayClicked" Name="BtnPlay" ToolTip="Play">
+                <Image Source="Resources/play.png"/>
+            </Button>
+            <Button Grid.Column="4" Click="PauseClicked" Name="BtnPause" ToolTip="Pause">
+                <Image Source="Resources/pause.png"/>
+            </Button>
+            <Button Grid.Column="5" Click="StopClicked" Name="BtnStop" ToolTip="Stop">
+                <Image Source="Resources/stop.png"/>
+            </Button>
+            <Button Grid.Column="6" Click="NextClicked" Name="BtnNext" ToolTip="Next">
+                <Image Source="Resources/next.png"/>
+            </Button>
+            <Button Grid.Column="7" Click="PrevClicked" Name="BtnPrev" ToolTip="Previous">
+                <Image Source="Resources/back.png"/>
+            </Button>
+            <Grid Name="VolumeGrid" Grid.Column="9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Image Source="Resources/speaker.png"/>
+                <Slider Grid.Column="1" Name="SldVolume" ToolTip="Volume" Value="50" Minimum="0" Maximum="100" Orientation="Vertical" ValueChanged="VolumeChanged">
+                    <Slider.LayoutTransform>
+                        <ScaleTransform ScaleY="0.5"/>
+                    </Slider.LayoutTransform>
+                </Slider>
+            </Grid>
+            <Grid Name="PositionGrid" Grid.Column="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Slider ToolTip="Position" Grid.Row="1" HorizontalAlignment="Stretch" Name="SldDuration" Minimum="0" Maximum="0" ValueChanged="PositionChanged" GotMouseCapture="PositionAdjustStart" LostMouseCapture="PositionAdjustEnd">
+                    <Slider.LayoutTransform>
+                        <ScaleTransform ScaleY="0.5"/>
+                    </Slider.LayoutTransform>
+                </Slider>
+                <Label Grid.Row="2" Height="20" Content="00:00" Name="LblTime" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize="8"/>
+            </Grid>
+        </Grid>
+        <Grid Name="EditorGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid Name="LeftGrid" Grid.Column="0" Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="LbxTrackList" SelectionChanged="SelectedTrackChanged" MouseDoubleClick="TrackListDoubleClicked" SelectionMode="Extended" KeyDown="TrackListKeyDown" />
+                </ScrollViewer>
+                <Image Name="ImgCover" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="60" Height="60"/>
+            </Grid>
+            <GridSplitter HorizontalAlignment="Right" 
+            VerticalAlignment="Stretch" 
+            Grid.Column="1" ResizeBehavior="PreviousAndNext"
+            Width="5" Background="#FFBCBCBC"/>
+            <Grid Grid.Column="2" Margin="3" Name="TagEditorGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Name="LblTitle" Content="Title:" Grid.Row="0" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbTitle" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
+
+                <Label Name="LblAlbum" Content="Album:" Grid.Row="1" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbAlbum" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="1" Grid.Column="3">
+                    <CheckBox Name="ChbAlbum" Checked="ChbAlbum_Checked" Unchecked="ChbAlbum_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblArtist" Content="Artist:" Grid.Row="2" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbArtist" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="2" Grid.Column="3">
+                    <CheckBox Name="ChbArtist" Checked="ChbArtist_Checked" Unchecked="ChbArtist_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblAlbumArtist" Content="Album artist:" Grid.Row="3" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbAlbumArtist" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="3" Grid.Column="3">
+                    <CheckBox Name="ChbAlbumArtist" Checked="ChbAlbumArtist_Checked" Unchecked="ChbAlbumArtist_Unchecked"/>
+                </Viewbox>
+                <Grid Name="NumGrid" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Name="LblYear" Content="Year:" Grid.Row="0" Grid.Column="0"/>
+                    <toolkit:AutoCompleteBox Name="TbYear" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" PreviewTextInput="ValidateNumTb"/>
+                    <Viewbox Margin="-1" Grid.Row="0" Grid.Column="2">
+                        <CheckBox Name="ChbYear" Checked="ChbYear_Checked" Unchecked="ChbYear_Unchecked"/>
+                    </Viewbox>
+                    <Grid Name="NumTrackGrid" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Name="LblTrackNo" Content="Track:" Grid.Row="0" Grid.Column="0"/>
+                        <toolkit:AutoCompleteBox Name="TbTrack" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
+                        <Label Name="LblTrackSep" Content="|" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
+                        <toolkit:AutoCompleteBox Name="TbTrackCount" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center"/>
+                        <Viewbox Margin="-1" Grid.Row="0" Grid.Column="4">
+                            <CheckBox Name="ChbTrack" Checked="ChbTrack_Checked" Unchecked="ChbTrack_Unchecked"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Name="NumDiscGrid" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Name="LblDiscNo" Content="Disc:" Grid.Row="0" Grid.Column="0"/>
+                        <toolkit:AutoCompleteBox Name="TbDisc" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
+                        <Label Name="LblDiscSep" Content="|" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
+                        <toolkit:AutoCompleteBox Name="TbDiscCount" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center"/>
+                        <Viewbox Margin="-1" Grid.Row="0" Grid.Column="4">
+                            <CheckBox Name="ChbDisc" Checked="ChbDisc_Checked" Unchecked="ChbDisc_Unchecked"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+                <Label Name="LblGenres" Content="Genres:" Grid.Row="6" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbGenres" Grid.Row="6" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="6" Grid.Column="3">
+                    <CheckBox Name="ChbGenres" Checked="ChbGenres_Checked" Unchecked="ChbGenres_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblComposers" Content="Composers:" Grid.Row="7" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbComposers" Grid.Row="7" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="7" Grid.Column="3">
+                    <CheckBox Name="ChbComposers" Checked="ChbComposers_Checked" Unchecked="ChbComposers_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblConductor" Content="Conductor:" Grid.Row="8" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbConductor" Grid.Row="8" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="8" Grid.Column="3">
+                    <CheckBox Name="ChbConductor" Checked="ChbConductor_Checked" Unchecked="ChbConductor_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblCopyright" Content="Copyright:" Grid.Row="9" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbCopyright" Grid.Row="9" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="9" Grid.Column="3">
+                    <CheckBox Name="ChbCopyright" Checked="ChbCopyright_Checked" Unchecked="ChbCopyright_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblGrouping" Content="Grouping:" Grid.Row="10" Grid.Column="0"/>
+                <toolkit:AutoCompleteBox Name="TbGrouping" Grid.Row="10" Grid.Column="1" VerticalContentAlignment="Center"/>
+                <Viewbox Margin="-1" Grid.Row="10" Grid.Column="3">
+                    <CheckBox Name="ChbGrouping" Checked="ChbGrouping_Checked" Unchecked="ChbGrouping_Unchecked"/>
+                </Viewbox>
+                <Label Name="LblLyrics" Content="Lyrics:" Grid.Row="12" Grid.Column="0"/>
+                <ScrollViewer Grid.Row="12" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <Border Margin="3" BorderThickness="1" BorderBrush="Gray" >
+                        <TextBox  Name="TblockLyrics" Text="" Background="White" TextWrapping="Wrap" AcceptsReturn="True" />
+                    </Border>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="575,133,-156.6,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>Device ID: <%= @device.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> 
+          <td><b>Brand</b></td> 
+          <td><%=@device.brand%></td> 
+        </tr>
+        <tr> 
+          <td><b>Model</b></td> 
+          <td><%=@device.model%></td> 
+        </tr>
+        <tr> 
+          <td><b>Room</b></td> 
+          <td><%=@device.room.label%></td> 
+        </tr>
+        <tr> 
+          <td><b>Employee</b></td> 
+          <td><%=@device.employee.name%> <%=@device.employee.surname%></td> 
+        </tr>
+        <tr> 
+          <td><b>Price</b></td> 
+          <td><%=@device.price%></td> 
+        </tr>
+        <tr> 
+          <td><b>Specification</b></td> 
+          <td><%=@device.specification%></td> 
+        </tr>
+        <tr> 
+          <td><b>Status</b></td> 
+          <td><%=@device.status%></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <% if can? :update, Device %>
+    <div class="btn btn-dark">
+        <%= link_to 'Edit', edit_device_path(@device), {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+  <% end %>
+  <div class="btn btn-dark">
+      <%= link_to 'Back', devices_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

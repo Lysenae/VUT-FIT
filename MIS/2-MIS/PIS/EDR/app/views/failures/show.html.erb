@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>Failure ID: <%= @failure.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> 
+          <td><b>Device</b></td> 
+          <td><%=@failure.device_name %></td> 
+        </tr>
+        <tr> 
+          <td><b>Announcer</b></td> 
+          <td><%=@failure.announcer_name %></td> 
+        </tr>
+        <tr> 
+          <td><b>Technician</b></td> 
+          <td><%=@failure.technician_name %></td> 
+        </tr>
+        <tr> 
+          <td><b>Description</b></td> 
+          <td><%=@failure.description %></td> 
+        </tr>
+        <tr> 
+          <td><b>Report</b></td> 
+          <td><%=@failure.report %></td> 
+        </tr>
+        <tr> 
+          <td><b>Announced</b></td> 
+          <td><%=@failure.announced_at %></td> 
+        </tr>
+        <tr> 
+          <td><b>Solved</b></td> 
+          <td><%=@failure.solved_str %></td> 
+        </tr>
+        <tr> 
+          <td><b>Updated</b></td> 
+          <td><%=@failure.updated_at %></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <% if can? :update, Failure %>
+    <div class="btn btn-dark">
+        <%= link_to 'Edit', edit_failure_path(@failure), {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+  <% end %>
+  <div class="btn btn-dark">
+      <%= link_to 'Back', failures_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

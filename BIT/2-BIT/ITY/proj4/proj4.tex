@@ -1,0 +1,48 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=1.5cm,text={18cm, 25cm},top=2.5cm]{geometry}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage{url}
+%\usepackage{upgreek,textgreek}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+\Huge
+\textsc{Fakulta informačních technologií \\
+Vysoké učení technické v~Brně} \\
+\vspace{\stretch{0.382}}
+\LARGE
+Typografie a~publikování - 4. projekt \\
+\Huge Bibliografické citácie
+\vspace{\stretch{0.618}}
+\end{center}
+{\LARGE \today \hfill Daniel Klimaj}
+\end{titlepage}
+
+\section*{\TeX, METAFONT a~\LaTeX}
+
+\TeX je program vytvorený v roku 1978, ktorý slúži pre sadzbu textu vytvorený Donaldom Ervinom Knuthom. Donald E. Knuth s \TeX u venuje v knihe \cite{Knuth1}. Okrem \TeX u je D. E. Knuth aj autorom sytému METAFONT, o ktorom pojednáva jeho kniha \cite{Knuth2}.
+
+METAFONT definuje tvary znakov, vzťahy medzi nimi, presne vymedzuje veľkosti znakov a grafický raster k ich reprezentácii \cite{Sbornik2}.
+
+Používatelia \TeX u málo kedy používajú príkazy podporované originálnym formátom \TeX u, miesto toho používajú formátové súbory, balíky makier. Najznámejším takýmto balíkom je \LaTeX. Jeho autorom je Leslie Lamport, ktorý sa mu venuje aj v knihe \cite{Lamport1}.
+
+Pre \LaTeX{} existuje množstvo rozširujúcich balíčkov a návodov na ich používanie, ktoré umožňujú napríklad sadzbu matemetických vzorcov \cite{Amsmath}, tabuliek \cite{Tables}, obrázkov \cite{Graphix}, atď..
+
+Využitie \LaTeX u je badateľné hlavne vo vedeckých a akademických okruhoch, kde sa využíva na vytváranie vedeckých prác alebo prezentácií. Kvôli tomu sa na niektorých školách vyučujú predmety zaoberajúce sa ním, ako napríklad Typografie a publikování na FIT VUT v Brne \cite{KrenaITY}.
+
+Dôležitým nástrojom pri práci s dokumentami je Bibtex. Pre český jazyk možno použiť napríklad štýly czechiso (použitý v tomto dokumente) alebo czplain \cite{Thesis1}.
+
+\LaTeX{} dokáže spolupracovať s niektorými porgramami, napríklad matematickým softwarom Sage, ako to ukazuje \cite{Sbornik1}. Ďalšie zaujímavé prepojenia \LaTeX u s inými nástrojami alebo programovacími jazykmi môžete nájsť v \cite{Thesis2} alebo v \cite{Thesis3}
+
+\newpage
+\bibliographystyle{czechiso}
+\def\refname{Literatúra}
+\bibliography{bibliography}
+
+\end{document}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "sidebar" %>
+    <%= stylesheet_link_tag "EDR" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="navbar navbar-static-top" style="padding: 15px 0px 5px 16px; background-color: #212529">
+      <div class="navbar-inner">
+        <h1>
+          <%= link_to 'Electronic Device Register', root_path,
+            class: 'homepage', style: 'color: #FFFFFF; text-decoration: none;' %>
+        </h1>
+      </div>
+      <% if current_user %>
+        <div class="navbar-inner pull-right">
+            <div class="container" style="padding-right: 25px;">
+              <div class="row justify-content-center">
+                <h3 style="color: white;"><%= current_user.login %></h3>
+              </div>
+              <div class="row justify-content-center">
+                <%= link_to 'Log out', logout_url %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+      <%= yield %>
+  </body>
+</html>

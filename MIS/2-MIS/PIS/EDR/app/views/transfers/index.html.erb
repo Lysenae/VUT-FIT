@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div class="index" align="center">
+
+    <h1>Transfers</h1>
+
+    <table class="table" style="width:80%; max-width:2500px">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Device</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Finished</th>
+          <th></th>
+          <% if can? :update, Transfer %>
+            <th></th>
+          <% end %>
+          <% if can? :destroy, Transfer %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @transfers.each do |transfer| %>
+          <tr>
+            <td><%= transfer.id%></td>
+            <td><%= transfer.device.brand%> <%= transfer.device.model%></td>
+            <td><%= transfer.from.label%></td>
+            <td><%= transfer.to.label%></td>
+            <td><%= transfer.finished_str %></td>
+            <td><%= link_to 'Show', transfer %></td>
+            <% if can? :update, Transfer %>
+              <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
+            <% end %>
+            <% if can? :destroy, Transfer %>
+              <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% if can? :create, Transfer %>
+      <div class="btn btn-dark">
+          <%= link_to 'New Transfer', new_transfer_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+      </div>
+    <% end %>
+    <div class="btn btn-dark">
+        <%= link_to 'Back', root_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+<div>

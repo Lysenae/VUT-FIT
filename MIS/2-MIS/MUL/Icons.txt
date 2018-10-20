@@ -1,0 +1,5 @@
+Icons made by authors from www.flaticon.com
+Dave Gandy: open.png
+Smashicons: play.png, pause.png, stop.png, speaker.png
+EpicCoders: back.png, next.png
+Good Ware: save.png

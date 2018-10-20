@@ -1,0 +1,13 @@
+Stanovené termíny:
+Termíny neboli dodrané úplne v súlade s naším plánom, ale aplikáciu sa nam nakoniec podarilo úspešne dokonèi
+
+Rozdelenie práce:
+Aplikáciu naprogramovali xmalik14 a xklima22. Obidvaja ovladajú jazyk python a aj preto bola aplikácia robená v tomto
+jazyku. xmalik14 vytvoril matematickú kninicku zatia¾ èo xklima22 navrhol a naprogramoval GUI aplikácie. xtomci00 vytvoril
+testy pre matematickú kninicu, vytvoril inštaláciu pomocou debian balíèku, odinštaláciu, dokumentáciu a Makefile.
+
+Komunikaèné kanály:
+Pre rozhovory sme pouívali tak ako pod¾a plánu, Facebook a Skype.
+
+Systém pre správu verzií:
+Pod¾a plánu - GIT.

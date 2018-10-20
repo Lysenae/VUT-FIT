@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="sk">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+  <h1>Návod</h1>
+  <h2>Spustenie</h2>
+  <p>Na spustenie skriptu je potrebné do hlavičky pridať javascriptový súbor date_controls.js. Po refreshnutí stránky skript skontroluje existenciu elementu &lt;div class="controls"&gt; a overí či sa vyskytuje práve 1x a či je prázdny. V prípade chyby ju vypíše do JS konzoly, inak vytvorí ovládacie prvky pre každý &lt;time&gt; element.</p>
+  <h2>Použitie</h2>
+  <p>V &lt;div class="controls"&gt; sa vytvorí tabuľka, v ktorej každý riadok obsahuje ovládacie prvky pre &lt;time&gt; elementy v poradí, v akom sa vyskytujú v dokumente.</p>
+  <p>Možno meniť:</p>
+  <ul>
+    <li>Časový údaj</li>
+    <li>Titulok</li>
+    <li>Zobrazenie relatívneho/absolútneho času</li>
+  </ul>
+  <p>Časový údaj môže byť ľubovoľný čas, ktorý dokáže JS spracovať na Date (viď. <a href="https://www.w3schools.com/js/js_date_formats.asp">link</a>) alebo dátum vo formáte DD.MM.YYYY [HH:mm[:SS]]. Zobrazenie relatívneho času je v rokoch, dňoch, hodinách, minútach alebo sekundách, a to v minulosti alebo budúcnosti (napr. "2 year ago" alebo "in 6 hours"). Skript doplňuje časovým elementom 2 atribúty: <i>tm-rel</i>, ktorý signalizuje, či sa čas zobrazuje ako relatívny alebo nie, a <i>tm-abs</i>, v ktorm sa uchováva hodnota zobrazovaná pri absolútom zobrazení času.</p>
+  <p>Pre potvrdenie zmien je potrebné stlačiť tlačítko <b>Apply</b>. Ak pri spracovaní času dôjde k chybe hodnoty sa opätovne nastavia na poslednú platnú hodnotu.</p>
+  <p>Pre lepšiu viditeľnosť majú v demo.html časové elementy žlté pozadie.</p>
+  <h2>Timeline</h2>
+  <p>Časová os sa aktualizuje každou zmenou časového údaju, titulku alebo zobrazenia relatívneho/absolútneho času. Začiatkom a koncom časovej osy sú najnižší a najvyšší časový údaj. Pre údaje medzi sa počíta ich percentuálna vzdialenosť od počiatku osy vzhľadom ku jej dĺžke. Dĺžka titulkov je obmedzená na 40 bodov.</p>
+</body>
+</html>

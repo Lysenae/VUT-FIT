@@ -1,0 +1,175 @@
+\documentclass[pdf,slideColor,fyma]{prosper}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{listings}
+
+\lstloadlanguages{Ruby}
+\lstset{
+basicstyle=\ttfamily\color{black},
+commentstyle = \ttfamily\color{red},
+keywordstyle=\ttfamily\color{blue},
+stringstyle=\color{orange}}
+
+\slideCaption{\textit{Ruby\dots}}
+\DefaultTransition{Wipe}
+
+\title{\Large Ruby}
+\author{Daniel Klimaj}
+\date{2015}
+\email{xklima22@stud.fit.vutbr.cz}
+\institution{Vysoké učení technické, Fakulta informačních technologií}
+
+\begin{document}
+\maketitle
+
+\begin{slide}{Ruby}
+\begin{itemize}
+  \item{Prvé vydanie v roku 1995}
+\end{itemize}
+\begin{itemize}
+  \item{Autor  Yukihiro "Matz" Matsumoto}
+\end{itemize}
+\begin{itemize}
+  \item{Inšpirovaný jazykmi C, Perl, Smalltalk, Eiffel, Ada a Lisp}
+\end{itemize}
+\begin{center}
+  \includegraphics[width=3cm]{ruby.eps}
+\end{center}
+\end{slide}
+
+\begin{slide}{História}
+\begin{itemize}
+  \item{1995: Prvé vydanie Ruby~0.95}
+  \item{1996: Vychádza Ruby~1.0}
+  \item{1997: Publikovaný prvý článok o Ruby}
+  \item{1998: Vychádza Ruby~1.2}
+  \begin{itemize}
+    \item{Anglická webová stránka}
+    \item{Ruby Application Archive}
+    \begin{itemize}
+      \item{hosting Ruby aplikácií}
+      \item{ukončený v roku 2013 pre nedostatok zdrojov pre hostovanie}
+    \end{itemize}
+  \end{itemize}
+  \item{1999: Vychádza Ruby~1.4}
+  \begin{itemize}
+    \item{Prvá kniha The Object-Oriented Scripting Language Ruby}
+  \end{itemize}
+  \item{2000: Vychádza Ruby~1.6}
+  \begin{itemize}
+    \item{Prvá kniha v angličtine Programming Ruby}
+  \end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{História}
+\begin{itemize}
+  \item{2003: Vychádza Ruby~1.8}
+  \begin{itemize}
+    \item{ISO štandard}
+  \end{itemize}
+  \item{2007: Vychádza Ruby~1.9}
+  \begin{itemize}
+    \item{Ruby~1.9 málo kompatibilný s Ruby~1.8}
+    \item{Pomalšie rozšírenie kvôli portovaniu}
+  \end{itemize}
+  \item{2011: Vychádza Ruby~1.9.3}
+  \item{2013: Vychádza Ruby~2.0}
+  \begin{itemize}
+    \item{Takmer plne kompatibilný s Ruby~1.9}
+  \end{itemize}
+  \item{2014: Vychádza Ruby~2.2}
+  \item{2015: Ukončenie údržby Ruby~1.9}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Sémantika}
+\begin{itemize}
+  \item{Každá hodnota je objekt, vrátane typov v iných jazykoch označených ako primitíva - integer, null, atď.}
+  \item{Každá funkcia je metóda - je volaná nad objektom}
+  \item{Dynamicky typovaný}
+  \item{Premenné vždy uchovávajú odkazy (referencie)}
+  \item{Dedičnosť - dynamický výber, mixin, singleton}
+  \item{Viacnásobná dedičnosť nepodporaovaná}
+  \item{Paradigma - procedurálny, funkcionálny, objektovo-orientovaný, imperatívny}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Syntax}
+\begin{itemize}
+  \item{Podobná Perlu a Pythonu}
+  \item{Bloky definované párom kľúčových slov begin a end, v niektorých prípadoch párom \{ a \}}
+  \item{Príkazy sa ukončujú novým riadkom alebo s ;}
+  \item{Všetky instančné premenné su privátne - prístup cez accessory \textit{attr\_reader}, \textit{attr\_writer} alebo \textit{attr\_accessor}}
+  \item{Umožňuje na konci názvov metód používať znaky ? a !, špecialny význam}
+    \begin{itemize}
+        \item{? - návratová hodnota je logická hodnota}
+          \begin{itemize}
+            \item{napr. def equal?(other)}
+          \end{itemize}
+        \item{! - modifikuje volajúci objekt}
+          \begin{itemize}
+            \item{$x = "abc"$}
+            \item{$x.sub("b", "d") \# x == "abc"$}
+            \item{$x.sub!("b", "d") \# x == "adc"$}
+          \end{itemize}
+     \end{itemize}
+\end{itemize}
+\end{slide}
+
+\overlays{3}{
+\begin{slide}{Accessory}
+\begin{figure}[ht]
+\begin{picture}(320,200)
+  \linethickness{1pt}
+  \fromSlide{1}{
+    \put(0,140){\framebox(120,60){
+     \shortstack[l]{\textit{attr\_reader :var} \\ \\ def var \\ \hspace{0.2cm} @var \\ end}}}}
+  \fromSlide{2}{
+    \put(0,20){\framebox(120,60){
+      \shortstack[l]{\textit{attr\_writer :var} \\ \\ def var=(value) \\ \hspace{0.2cm} @var = value \\ end}}}}
+   \fromSlide{3}{
+    \put(200,50){\framebox(120,120){
+       \shortstack[l]{\textit{attr\_accessor :var} \\ \\ def var \\ \hspace{0.2cm} @var \\ end \\ \\ def var=(value) \\ \hspace{0.2cm} @var = value \\ end}}}}
+    \end{picture}
+  \end{figure}
+\end{slide}
+}
+
+
+\begin{slide}{Ukážka kódu}
+
+\begin{lstlisting}[basicstyle=\tiny, language=Ruby]
+class ExampleBase
+  def say_hello_to name
+    puts "Hello #{name}!"
+  end
+end
+
+class Example < ExampleBase
+  attr_accessor :var
+
+  def initialize val
+    @var = val
+  end
+end
+
+e = Example.new(5)
+puts e.var              # 5
+e.say_hello_to "World"  # Hello World!
+\end{lstlisting}
+
+\end{slide}
+
+\begin{slide}{Zdroje}
+
+\begin{itemize}
+\item{Wikipedia \\
+  \tiny\url{ http://en.wikipedia.org/wiki/Ruby_(programming_language)}}
+\item{Ruby Lang \\
+  \tiny\url{ https://www.ruby-lang.org/en/about/}}
+\end{itemize}
+\end{slide}
+\end{document}

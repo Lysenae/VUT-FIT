@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=CP1250">
+    <title>Projekt PIS</title>
+    <style type="text/css">
+        table { border-collapse: collapse; }
+        td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+        dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle pouľitého editoru -->
+
+<!-- Nahraďte prosím názvem tématu -->
+<h1>Evidence výpočetní techniky</h1>
+
+<!-- Editujte jména a maily autorů a jejich činnost -->
+<dl>
+    <dt>Autoři</dt>
+    <dd>První autor 
+        <a href="mailto:xklima22@stud.fit.vutbr.cz">xklima22@stud.fit.vutbr.cz</a> -
+        databáze, kontrolér, správa uživatelů, draper dekorátor 
+    </dd>
+    <dd>Druhý autor
+        <a href="mailto:xsvobo0k@stud.fit.vutbr.cz">xsvobo0k@stud.fit.vutbr.cz</a> - 
+        frontend, kontrolér, některé validace
+    </dd>
+</dl>
+
+<!-- uľivatelské účty -->
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>admin123</td><td>Administrátor</td></tr>
+<tr><td>matco</td><td>matco123</td><td>Materiálový koordinátor</td></tr>
+<tr><td>persclrk</td><td>persclrk</td><td>Personalista</td></tr>
+<tr><td>tech</td><td>tech1234</td><td>Technik</td></tr>
+<tr><td>employee</td><td>iameployee</td><td>Zaměstnanec</td></tr>
+</tbody></table>
+
+<h2>Postup instalace</h2>
+<ol>
+    <li>Nainstalovat Ruby 2.2+ (napr. přes <a href="http://rvm.io/">Ruby Version Manager</a>)</li>
+    <li>Nainstalovat ruby gem bundler (<code>$ gem install bundler</code>)</li>
+    <li>
+        <ol>
+            <li>Instalace knihoven (gemů) - <code>$ bundle install</code></li>
+            <li>Migrace DB, testovací verze aplikace využívá SQLite3 - <code>$ bin/rails db:migrate</code></li>
+            <li>Naplnění DB - <code>$ bin/rails db:seed</code></li>
+            <li>Spuštění aplikace - <code>$ bin/rails server</code></li>
+        </ol>
+    </li>
+    <li>Aplikace běží na <a href="http://localhost:3000">http://localhost:3000</a></li>
+</ol>
+
+<!-- vyľadované knihovny třetích stran i s verzemi, které byly použity pro testování -->
+<h2>Vyžadované knihovny</h2>
+<ul>
+    <li>rails 5.1.6</li>
+    <li>bootstrap_form 4.0.0</li>
+    <li>draper 3.0.0</li>
+    <li>access-granted 1.2.0</li>
+    <li>auto-session-timeout 0.9.5</li>
+</ul>
+</body></html>

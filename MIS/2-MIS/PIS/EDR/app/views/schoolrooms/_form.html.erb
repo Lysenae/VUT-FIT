@@ -1,0 +1,19 @@
+<%= bootstrap_form_with(model: schoolroom, local: true, layout: :horizontal) do |form| %>
+  <%= form.text_field :label, field_params(@schoolroom.room_label) %>
+  <%= form.select(:department, @schoolroom.departments_dropdown, field_params, form_class) %>
+  <%= form.text_field   :location, field_params(@schoolroom.location) %>
+  <%= form.number_field :width,    decimal_num_field_params(@schoolroom.width) %>
+  <%= form.number_field :length,   decimal_num_field_params(@schoolroom.length) %>
+  <%= form.number_field :height,   decimal_num_field_params(@schoolroom.height) %>
+  <%= form.number_field :seats,    integer_num_field_params(@schoolroom.get_seats) %>
+  <%= form.number_field :rows,     integer_num_field_params(@schoolroom.get_rows) %>
+  <%= form.number_field :blocks,   integer_num_field_params(@schoolroom.get_blocks) %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+    <div class="col-md-8">
+      <%= form.submit "Submit", class: "btn btn-dark"%>
+      <%= link_to 'Back', rooms_path, {:style => 'color: #FFFFFF', :class => "btn btn-dark"} %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,63 @@
+Projekt ICP 2015 - Labyrint
+Varianta I - Operácia Undo
+
+I) Autori:
+  Daniel Klimaj    xklima22@stud.fit.vutbr.cz
+  Vojtěch Večeřa   xvecer18@stud.fit.vutbr.cz
+
+II) Automaticky vygenerované súbory:
+  src/ICP.pro
+  src/newgamedlg.ui
+  src/boardview.ui
+
+III) Použité knižnice:
+  Qt 5.2
+
+IV) Popis:
+Projekt implementuje hru Labyrint vo variante I, t.j. s operáciou Undo, ktorá vracia
+späť kroky vykonané hráčmi. Aplikácia oddeluje model a gui, a tak je možné skompilovať
+CLI verziu bez Qt. Jediné moduly závislé na Qt sú boardview a tileview. Generovanie
+úloh sme spravili, tak, že každý hráč vidí na ploche len svoj predmet a po jeho zobratí
+sa mu na náhodnom mieste vygeneruje nový.
+
+1) Ovládanie GUI:
+  Ctrl+N        Nová hra
+  Ctrl+O        Načíta uloženú hru
+  Ctrl+S        Uloží aktuálnu hru
+  Ctrl+Z        Vráti späť posledný krok
+  Alt+X         Ukončí aplikáciu
+
+  Prípadne možno použiť Menu.
+
+Počas hry sa striedajú 2 fázy, v ktorých hráč buď posúva dlaždice alebo figúrky hráčov.
+Aktívne dlaždice, ktoré možno posúvať alebo na ne presunúť figúrku sú ohraničené zeleným
+rámom, neaktívne dlaždice červeným rámom. Voľná dlzždica sa otáča klikaním na ňu.
+Figúrky hráčov na dlaždici sú znázornené modrým, červeným, zeleným alebo žltým kruhom
+v ľavom dolnom rohu dlaždice, prípadne tam môže byť kruhov aj viac. Predmet (úloha) na
+dlaždici za zobrazuje v ľavom hornom rohu.
+
+2) Ovládanie CLI:
+Aplikácia vyzýva hráča o zadanie čísla dlaždice alebo stupňa natočenia. Požiadavka sa opakuje
+až do chvíle, kým nie je zadaná validná hodnota. Po každej fázy je možné hru uložiť,
+použiť operáciu Undo alebo pokračovať ďalej.
+
+Vzhľad dlaždice:
+┌───────┐
+│&     1│
+│ A ║   │
+│R      │
+└───────┘
+
+  - & v ľavom hronom rohu značí predmet na dlaždici, ďalšie možné znaky sú:
+    1234567890!@#$%&*=(){}[]
+  - 1 v pravom hornom rohu značí index dlaždice, začína od 0 a voľná dlaždica má index -1
+  - A v strednom riadku naľavo značí, že dlaždica je aktívna, možno ju posúvať alebo
+    na ňu presunúť hráča, neaktívne dlaždice tam nemajú nič.
+  - Znak v strede značí tvar dlaždice.
+  - R v ľavom dolnom rohu značí, že na dlaždici sa nachádza červený hráč (hráč 2),
+    ostatné značky sú B (1), G (3), Y (4).
+
+V) Testy:
+  test1.icp - Demonštruje zdvihnutie úlohového predmetu a navýšenie skóre hráča.
+  test2.icp - Demonštruje vysunutie hráča mimo plochu a jeho objavenie na opačnej strane.
+  test3.icp - Demonštruje ukončenie hry víťzstvom.

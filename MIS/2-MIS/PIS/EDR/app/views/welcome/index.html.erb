@@ -1,0 +1,40 @@
+<div class="sidenav">
+  <%= link_to 'Employees', employees_path %>
+  <%= link_to 'Devices', devices_path %>
+  <%= link_to 'Rooms', rooms_path %>
+  <%= link_to 'Departments', departments_path %>
+  <%= link_to 'Failures', failures_path %>
+  <%= link_to 'Transfers', transfers_path %>
+  <% if can? :index, User %>
+    <%= link_to 'Users', users_path %>
+  <% end %>
+</div>
+
+<!-- Page content -->
+<div class="main">
+  <div class="container" align="center"}>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <div style="padding-top: 30px">
+      <h1> <%= "Welcome " + current_user.right.name%> </h1>
+      <div style ="padding-top: 50px">
+        <table class="table" style="width:80%; max-width:800px">
+          <tr> 
+            <td><b>Name:<b></td><td><%=current_user.employee.name%> <%=current_user.employee.surname%></td>
+          </tr>
+          <tr> 
+            <td><b>Login:<b></td><td><%=current_user.login%></td>
+          </tr>
+          <tr> 
+            <td><b>Office:<b></td><td><%=current_user.employee.office.room.label%></td>
+          </tr>
+          <tr> 
+            <td><b>Email:<b></td><td><%=current_user.employee.email%></td>
+          </tr>
+        </table>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+</div>

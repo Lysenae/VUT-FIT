@@ -1,0 +1,6 @@
+pro preklad vyzaduje:
+    valac
+    libgtk-3-dev nebo ekvivalent
+    libsqlite3-dev nebo ekvivalent
+    libgstreamer0.10-dev
+    pripadne kodeky pro gstreamer0.10 neco jako fluendo-mp3 atd.

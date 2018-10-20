@@ -1,0 +1,65 @@
+Popis:    Dokumentácia k 2. projektu z IPK
+Varianta: 1: Jednoduchý HTTP klient a server
+Autor:    Daniel Klimaj; xklima22@atud.fit.vutbr.cz
+Jazyk:    C# (Mono)
+Dátum:    2015-04-30
+
+Voliteľné rozšírenie Chunked Transfer Encoding implementované.
+
+1) Klient
+./ipkhttpclient [-h] URI
+
+Klient je definovaný v súbore Client.cs a vytvára instancovaním triedy IpkClient,
+ktorej konštruktor prijíma jeden parameter - URI.
+Zavolaním metódy SendRequest() sa vyhodnotí správnosť zadanej URI, ktorá ak je
+správna, tak sa skúsi vytvoriť spojenie so zadaným serverom. V prípade neúspechu
+je vyvolaná výnimka a program následne ukončený.
+
+Po odoslaní požiadavku sa načíta odpoveď a zistí sa, či nie je v hlavičke zadaný
+Chunked Transfer Encoding. Ak áno, tak sa postupne čítajú byty zo socketu a
+vyhodnocuje sa a skladá prijímaný objekt. V prípade, že nesedí dĺžka prijímaného
+reťazca alebo sú zle ukončené riadky, spracúvanie je ukončené chybou.
+
+Po prijatí správy sa zapíšu prijaté dáta do logov.
+
+2) Server
+./ipkhttpserver -p port [-h] [-c chunk-max-size] [-t chunk-min-time]
+
+Server povinne požaduje zadať minimálne číslo portu. Vytvára sa instancovaním
+triedy IpkServer, ktorej konštruktor prijíma 1 povinný (port) a 2 voliteľné
+parametre (chunk size a chunk min. time).
+
+Server sa spúšťa zavolaním metódy Run(), kde až do prijatia SIGINT kontroluje, či
+má nejaké čakajúce spojenia. Po prijatí spojenia spracuje hlavičku a overí, či
+sa požadovaný súbor/cesta nachádza v priečinku www a podľa toho buď odpovie chybou
+404, alebo na základe parametrov predaných konštruktoru zloží odpoveď:
+
+ - ak nebol zadaný chunk size, tak pošle celý dokument klientovi a ignoruje chunk
+  min. time.
+
+ - ak bol zadaný chunk size a nebol zadaný chunk min. time, tak ak je dokument
+  dlhší ako chunk size, tak ho oreže a pošle klientovi.
+
+- ak bol zadaný chunk size aj chunk min. time, tak sa do hlavičky pridá
+  Transfer-Encoding: chunked a odošle po častiach (chunkoch) o veľkosti chunk
+  size v časových intervaloch chunk min. time.
+
+3) Testy
+Testy sú definované v súbore do_test.sh a obsahuje 5 testov, pre ktoré sa vytvorí
+priečinok tests s podpriečinkami testX, kde X je číslo testu.
+
+Testy sú nasledovné:
+
+Test 1 - Klient požiada server od existujúci súbor test.txt, server nemá zadané
+  chunk size ani chunk min. time. Súbor by mal byť prijatý celý.
+
+Test 2 - Klient požiada server od existujúci súbor test.txt, server má zadaný
+  chunk size a nemá zadaný chunk min. time. Súbor by mal by prijatý skrátený.
+
+Test 3 - Klient požiada server od existujúci súbor test.txt, server má zadané
+  chunk size aj chunk min. time. Súbor by mal byť po častiach prijatý celý.
+
+Test 4 - Klient požiada server od existujúci súbor test.txt. Klient by mal
+  obdržať odpoveď 404.
+
+Test 5 - Klient zašle požiadavku na www.example.com a mal by dostať HTML súbor.

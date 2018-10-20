@@ -1,0 +1,9 @@
+[submodule "boards/lolin32/lib/mqtt-websocket-mcu"]
+	path = boards/lolin32/lib/mqtt-websocket-mcu
+	url = https://github.com/Azaran/mqtt-websocket-mcu.git
+[submodule "boards/lolin32/lib/arduinoWebSockets"]
+	path = boards/lolin32/lib/arduinoWebSockets
+	url = https://github.com/Azaran/arduinoWebSockets.git
+[submodule "boards/d1_mini/lib/mqtt-websocket-mcu"]
+	path = boards/d1_mini/lib/mqtt-websocket-mcu
+	url = https://github.com/Azaran/mqtt-websocket-mcu.git

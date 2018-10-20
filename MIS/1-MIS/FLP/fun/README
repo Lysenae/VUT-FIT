@@ -1,0 +1,48 @@
+Funkcionální a logické programování
+
+Projekt č.1 - Funkcionálny projekt
+
+Varianta: plg-2-nka
+Autor:    Daniel Klimaj (xklima22@stud.fit.vutbr.cz)
+Popis:    Program prevádza vstupnú pravú lineárnu gramatiku na ekvivalentný
+          nedeterministický konečný automat.
+
+I) O programe
+Program implementuje všetky požadované operácie, ktorých funkcionalita je ukázaná
+pomocou testovacej sady (make test). Na prasovanie vstupnej gramatiky (zo stdin
+alebo zo zadaného súboru) sa používa modul Text.ParserCombinators.ReadP. Načítaná
+gramatika je potom skontrolovaná, či pravidlá majú správny formát alebo obsahujú
+platné symboly. Program nepoužíva žiadne neštandardné moduly a je preložiteľný na
+merlinovi.
+
+II) Spustenie
+make
+./plg-2-nka [volby] [subor]
+
+Voľby:
+  -i - Vypíše vnútornú reprrezentáciu vstupnej gramatiky
+  -1 - Vypíše ekvivalentú gramatiku G ku vstupnej gramatike, obsahujúcu len pravidlá
+       tvaru A->xB alebo A-># (kde A,B sú neterminály z G, x je terminál z G)
+  -2 - Vypíše ekvivalentný nedeterministický konečný automat ku vstupnej gramatike
+
+III) Test
+K programu je priložená testovacia sada, ktorá kontroluje správnosť vstupnej
+gramatiky a ukáže funkčnosť vstupných volieb na gramatike z príkladu 3.8 na
+strane 28 v skriptách TIN.
+
+IV) Štruktúra
+Moduly sa nachádzajú v priečinku Lib a sú rozdelené do 5 podpriečinkov:
+  CmdArgs - Spracovanie parametrov príkazového riadku
+  Misc    - Pomocné funkcie
+  NFSM    - Reprezentácia NKA 
+  RLG     - Reprezentácia PLG
+  Type    - Reprezentácia typov spoločných pre NFSM a RLG (State a Symbol)
+
+Priečinok RLG ďalej obsahuje podpriečinok Transform, v ktorom sa nachádzajú funkcie
+pre transofrmáciu vstupnej gramatiky na ekvivalentnú gramatiku G bsahujúcu len pravidlá
+tvaru A->xB alebo A-># (kde A,B sú neterminály z G, x je terminál z G). Mimo modulu
+helpers, každý modul zodpovedá jednému bodu z vety 3.2 (skriptá TIN, s. 25):
+  PreservedRules - bod 1, zachovanie pravidiel tvaru A->xB a A->#
+  AlphaNRules    - bod 2, prepis pravidiel tvaru A->alphaB na A->xA1, A1->xA2, ..., A[n-1]->xB
+  AlphaRules     - bod 3, prepis pravidiel tvaru A->alpha na A->xB1, B1->xB2, ..., Bn->#
+  SimpleRules    - bod 4, náhrada pravidiel tvaru A->B

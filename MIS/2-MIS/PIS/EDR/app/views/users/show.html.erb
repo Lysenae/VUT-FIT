@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>User ID: <%= @user.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> 
+          <td><b>Login</b></td> 
+          <td><%=@user.login%></td> 
+        </tr>
+        <tr> 
+          <td><b>Employee</b></td> 
+          <td><%=@user.employee.fullname%></td> 
+        </tr>
+        <tr> 
+          <td><b>Role</b></td> 
+          <td><%=@user.right.name%></td> 
+        </tr>
+        <tr> 
+          <td><b>Created at</b></td> 
+          <td><%=@user.created_at%></td> 
+        </tr>
+        <tr> 
+          <td><b>Updated at</b></td> 
+          <td><%=@user.updated_at%></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="btn btn-dark">
+      <%= link_to 'Edit', edit_user_path(@user), {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+  <div class="btn btn-dark">
+      <%= link_to 'Back', users_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+  <h1>Transfer ID: <%= @transfer.id%></h1>
+
+  <div style="max-width:1000px">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width: 50%"></th>
+          <th style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> 
+          <td><b>Device</b></td> 
+          <td><%=@transfer.device.brand%> <%=@transfer.device.model%></td> 
+        </tr>
+        <tr> 
+          <td><b>From</b></td> 
+          <td><%=@transfer.from.label%></td> 
+        </tr>
+        <tr> 
+          <td><b>To</b></td> 
+          <td><%=@transfer.to.label%></td> 
+        </tr>
+        <tr> 
+          <td><b>Author</b></td> 
+          <td><%=@transfer.author.name%> <%=@transfer.author.surname%></td> 
+        </tr>
+				<tr>
+					<td><b>Approved by</b></td> 
+					<%if @transfer.approved != nil %>
+						<td><%=@transfer.approved.name%> <%=@transfer.approved.surname%></td> 
+					<% end %>
+        </tr>
+        <tr> 
+          <td><b>Reason</b></td> 
+          <td><%=@transfer.reason%></td> 
+        </tr>
+        <tr> 
+          <td><b>Requested at</b></td> 
+          <td><%=@transfer.requested_at%></td> 
+        </tr>
+        <tr> 
+          <td><b>Done at</b></td> 
+          <td><%=@transfer.done_at%></td> 
+        </tr>
+        <tr> 
+          <td><b>Created at</b></td> 
+          <td><%=@transfer.created_at%></td> 
+        </tr>
+        <tr> 
+          <td><b>Updated at</b></td> 
+          <td><%=@transfer.updated_at%></td> 
+        </tr>
+        <tr> 
+          <td><b>Finished</b></td> 
+          <td><%= @transfer.finished_str %></td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <%if can? :update, Transfer %>
+    <div class="btn btn-dark">
+        <%= link_to 'Edit', edit_transfer_path(@transfer), {:style => 'color: #FFFFFF', :class => "btn"} %>
+    </div>
+  <% end %>
+  <div class="btn btn-dark">
+      <%= link_to 'Back', transfers_path, {:style => 'color: #FFFFFF', :class => "btn"} %>
+  </div>
+</div>

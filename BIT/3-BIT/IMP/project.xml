@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project outputprefix="sqrt">
+
+    <!--  Project description -->
+    <name>Výpočet odmocniny</name>
+    <author>Daniel Klimaj</author>
+    <authoremail>xklima22@stud.fit.vutbr.cz</authoremail>
+    <revision>20151217</revision>
+    <description>Aplikácia vypočítavajúca odmocninu celého čísla metódami Fast Inverse Square Root a CORDIC</description>
+
+    <!--  MCU part -->
+    <mcu>
+        <include>mcu/libs/keyboard/package.xml</include>
+        <include>mcu/libs/lcd/package.xml</include>
+        <file>main.c</file>
+    </mcu>
+
+    <!-- FPGA part -->
+    <fpga>
+        <include>fpga/ctrls/keyboard/package.xml</include>
+        <include>fpga/ctrls/lcd/package.xml</include>
+        <file>top_level.vhd</file>
+    </fpga>
+
+</project>

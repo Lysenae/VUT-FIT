@@ -1,0 +1,17 @@
+#include <Motif.tmpl>
+#include <Motif.rules>
+
+TARGET = editor
+SRCS = editor.cpp mainwindow.cpp colors.cpp shape.cpp shapeproperties.cpp
+OBJS = editor.o mainwindow.o colors.o shape.o shapeproperties.o
+
+CC=g++
+CCOPTIONS=-O -Wall -fno-builtin
+CDEBUGFLAGS=-g
+
+LOCAL_LIBRARIES = XmClientLibs
+
+MComplexProgramTarget($(TARGET), $(LOCAL_LIBRARIES), NullParameter)
+
+clean::
+	$(RM) Makefile

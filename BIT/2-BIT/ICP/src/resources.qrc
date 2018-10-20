@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/tiles">
+        <file alias="i_tile">rsrc/tiles/i_tile.png</file>
+        <file alias="l_tile">rsrc/tiles/l_tile.png</file>
+        <file alias="t_tile">rsrc/tiles/t_tile.png</file>
+    </qresource>
+    <qresource prefix="/gems">
+        <file alias="gem1">rsrc/gems/gem1.png</file>
+        <file alias="gem2">rsrc/gems/gem2.png</file>
+        <file alias="gem3">rsrc/gems/gem3.png</file>
+        <file alias="gem4">rsrc/gems/gem4.png</file>
+        <file alias="gem5">rsrc/gems/gem5.png</file>
+        <file alias="gem6">rsrc/gems/gem6.png</file>
+        <file alias="gem7">rsrc/gems/gem7.png</file>
+        <file alias="gem8">rsrc/gems/gem8.png</file>
+        <file alias="gem9">rsrc/gems/gem9.png</file>
+        <file alias="gem10">rsrc/gems/gem10.png</file>
+        <file alias="gem11">rsrc/gems/gem11.png</file>
+        <file alias="gem12">rsrc/gems/gem12.png</file>
+        <file alias="gem13">rsrc/gems/gem13.png</file>
+        <file alias="gem14">rsrc/gems/gem14.png</file>
+        <file alias="gem15">rsrc/gems/gem15.png</file>
+        <file alias="gem16">rsrc/gems/gem16.png</file>
+        <file alias="gem17">rsrc/gems/gem17.png</file>
+        <file alias="gem18">rsrc/gems/gem18.png</file>
+        <file alias="gem19">rsrc/gems/gem19.png</file>
+        <file alias="gem20">rsrc/gems/gem20.png</file>
+        <file alias="gem21">rsrc/gems/gem21.png</file>
+        <file alias="gem22">rsrc/gems/gem22.png</file>
+        <file alias="gem23">rsrc/gems/gem23.png</file>
+        <file alias="gem24">rsrc/gems/gem24.png</file>
+    </qresource>
+    <qresource prefix="/players">
+        <file alias="blue">rsrc/players/blue_player.png</file>
+        <file alias="green">rsrc/players/green_player.png</file>
+        <file alias="red">rsrc/players/red_player.png</file>
+        <file alias="yellow">rsrc/players/yellow_player.png</file>
+    </qresource>
+</RCC>
